@@ -15,7 +15,7 @@
 
 // TODO(release): set the public repository URL here, in this one place. While it is empty the footer
 // shows a plain-text note instead of a link (Plan/18 decision 9 + user decision: footer = repo link only).
-export const REPO_URL = '';
+export const REPO_URL = 'https://github.com/seoykwon/marswalk-gale';
 
 /** Menu order and targets. `live: false` = page not built yet (W4–W6); it is left out of the menu. */
 export const PAGES = [

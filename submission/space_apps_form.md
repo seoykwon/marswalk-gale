@@ -4,45 +4,57 @@
 Marswalk: a walking-EVA planner for Gale Crater
 
 ## High-Level Project Summary
-Marswalk is a layered web map that helps an astronaut plan and carry out a walking EVA (a "Marswalk") in Gale Crater, Mars. It combines data from several NASA missions on one map: MRO HiRISE and CTX imagery, a 1 m HiRISE terrain model, Mars Odyssey THEMIS, MGS MOLA, and Curiosity's own RAD radiation and REMS weather measurements. It turns that data into numbers a crew can act on. For a chosen route it reports distance, walking time, climb, steep-slope sections, radio blind spots to base, radiation dose for the walk, and ground temperature by hour and season. An EVA screen counts down to the turn-back point, which is the earliest of four limits: time, sunset, cold and dose budget. A printable cuff checklist puts the same numbers on the astronaut's wrist. On the Mount Sharp route, the 3,649.1 m round trip takes about 2 h 34 min. It has 3 sections at 15° or steeper (Curiosity tilted 24.0° there) and 856 m out of radio line of sight. The walk adds 16.5 µGy of measured dose. This matters because the first crews on Mars will need to know before they step out whether they can go, and when they must turn back.
+Marswalk is a layered web map that helps an astronaut plan and carry out a walking EVA in Gale Crater, Mars. It combines data from several NASA missions on one map: MRO HiRISE and CTX imagery, a 1 m HiRISE terrain model, Mars Odyssey THEMIS, MGS MOLA, and Curiosity's own RAD radiation and REMS weather measurements. For a chosen route it reports distance, walking time, climb, steep slopes, radio blind spots to base, radiation dose and ground temperature by hour and season. An EVA screen counts down to the turn-back point, the earliest of four limits: time, sunset, cold and dose budget. A printable cuff checklist puts the same numbers on the astronaut's wrist. On the Mount Sharp route, the 3.6 km round trip takes about 2 h 34 min, has 3 sections at 15 degrees or steeper (Curiosity tilted 24 degrees there) and 856 m out of radio line of sight. The first crews on Mars will need to know, before they step out, whether they can go and when they must turn back. Marswalk answers both from real mission data, and it works offline.
+
 
 ## Link to Project Demo
 [paste the public link to the slide deck]
 
 ## Link to Final Project
-[paste the GitHub Pages URL, e.g. https://<your-github-username>.github.io/marswalk-gale/]
+https://seoykwon.github.io/marswalk-gale/
 
-## Detailed Project Description
-What it does
-- Planning map (map.html) with 11 map layers and 14 vector layers. The map layers cover HiRISE colour, CTX, THEMIS day and night IR, thermal inertia, MOLA, hillshade, slope classes, elevation and radio line of sight. The vector layers cover the Curiosity traverse, waypoints, photos, geology, place names and contours.
-- Route panel for two routes: a flat reference route from Bradbury Landing to Yellowknife Bay, and a slope route on Mount Sharp. It shows distance, time, climb, slope hazards checked against the rover's recorded tilt, radio blind spots, radiation dose, ground temperature and nearby rover photos.
-- Radiation panel (Curiosity RAD) and temperature panel (Curiosity REMS), with charts, units, periods and data tables.
-- A draw tool. Sketch any path and get its distance, slope profile and walking time on a 10 m grid.
-- EVA screen (eva.html). It shows the next stop, the remaining time, the turn-back margin, dose bars, and slope and comms warnings. A replay mode simulates a normal day and the sol 4716 transient-event day. It is high-contrast, has large buttons and works offline.
-- Cuff checklist (cuff.html). Printable 90 × 60 mm cards with bearings, distances and latest turn-back times.
-- Electronics view. The same data read for equipment: dose in silicon (TID), the LET spectrum (SEE context) and daily thermal cycling.
+## Project Details
+WHAT IT DOES
+Marswalk is a static website with three tools for one walking EVA in Gale Crater:
+- Planning map: 11 map layers (HiRISE colour, CTX, THEMIS day/night infrared, thermal inertia, MOLA, hillshade, slope classes, elevation, radio line of sight) and 14 vector layers (Curiosity traverse, waypoints, rover photos, geology, place names, contours). Pick a route and a panel shows distance, walking time, climb, steep-slope sections, radio blind spots to base, radiation dose for the walk and ground temperature by hour and season. A draw tool gives the same numbers for any path you sketch.
+- EVA screen: the next stop, time left, a turn-back countdown, dose bars and slope/comms warnings. A replay mode simulates a normal day and the sol 4716 transient radiation event.
+- Cuff checklist: printable wrist cards with bearings, distances and the latest turn-back time at each stop.
 
-How it works
-- All rasters are reprojected to one Mars sphere frame. Before use they are checked against Curiosity's surveyed waypoints: the DEM is −1.32 m from the waypoints on average, and DEM slope is −0.81° (median) from the rover's measured tilt.
-- RAD data are parsed directly from PDS RDR files. Only observations with QC flag 00000000 and a duration of at least 600 s are kept.
-- REMS data come from PDS MODRDR files, keeping high-confidence ground temperature only. The season (Ls) is computed with the Mars24 / Allison & McEwen (2000) formulas.
-- Every number shown is recomputed from the data by check scripts. The EVA self-test passes 77/77.
+HOW IT WORKS
+- All rasters are reprojected to one Mars coordinate frame and checked against Curiosity's surveyed waypoints: the terrain model differs from them by -1.32 m on average, and its slope differs from the rover's measured tilt by -0.81 degrees (median).
+- Radiation comes straight from Curiosity RAD files in the Planetary Data System (only quality-flag 00000000 observations of 600 s or longer). Ground temperature comes from REMS files, high-confidence rows only.
+- The turn-back point is the earliest of four limits: 6 hours, sunset, -40 C ground and a 50 microgray dose budget. These are planning assumptions, labelled as such, not health limits.
+- Every number shown on screen is recomputed from the data by check scripts, and the EVA self-test passes 77/77.
 
-Benefits and goals
-- Data from several missions combined into one go or turn-back decision, with every assumption labelled.
-- Works offline, which is what a crew in the field would need.
-- Next: live REMS and RAD feeds, more routes, and suit telemetry in place of the assumed limits.
+BENEFITS AND INTENDED IMPACT
+Data from several NASA missions becomes one clear go or turn-back decision. Example: the Mount Sharp route is a 3,649 m round trip of about 2 h 34 min. It has 3 sections at 15 degrees or steeper (Curiosity tilted 24 degrees there), 856 m without radio line of sight to base, and adds 16.5 microgray of measured dose. The tool also works offline, which a crew in the field would need. The same data is read for equipment too: dose in silicon (total ionizing dose), the particle energy spectrum (single-event-effect context) and daily thermal cycling of 83 K on average.
 
-Tools
-- HTML, CSS and JavaScript with Leaflet 1.9.4.
-- Python 3 standard library and GDAL 3.8 for data processing.
-- Headless Chrome for checks.
+HUMAN SURVIVAL CONSIDERATIONS
+Every feature was shaped by one question: will the crew member get back safely?
+- Turn back before the first limit: the turn-back point is the earliest of four limits (6 hours, sunset, -40 C ground, 50 microgray dose budget), with a 30-minute reserve kept for the walk home. The EVA screen moves from "continue" to "turn soon" to "turn now" as the margin shrinks.
+- Radiation: dose is tracked twice, for the body (RAD's plastic detector, used here as the body-side reading) and for the equipment (its silicon detector). A replay of sol 4716, a transient radiation event of unconfirmed cause, shows what a bad day looks like: starting at 09:00, the 50 microgray budget is reached after about 4.6 hours.
+- Cold: hourly ground temperature by season shows when the surface drops below -40 C. In the last Mars year the ground spent about 14 hours per sol below that line, so the start time matters.
+- Falls and fatigue: slopes of 15 degrees or more are flagged 50 m ahead, slopes over 25 degrees are treated as impassable, and walking speed is reduced on steeper ground, so the time estimates already include the climb.
+- Losing contact: stretches with no radio line of sight to base are flagged 100 m ahead, so the crew knows when they will be out of touch.
+- Daylight: the walk must end before sunset; the planner refuses a start time that is already too cold.
+- Backup when tech fails: the site works offline, and the printed cuff checklist keeps bearings, distances and turn-back times on the wrist if the screen fails.
+- Readable under stress: dark high-contrast screen, large buttons usable with gloves (72 px), and warnings shown with shape and text, not colour alone.
+These limits are planning assumptions, clearly labelled, not medical or health limits; real values would come from suit and crew data.
 
-Honest limits
-- RAD has no position. Radiation is shown as measured at the rover over time, not as a map.
-- The route A and route B dose rates were measured 13 years apart, so their difference is not an altitude or site effect.
-- Walking speed, slope thresholds, antenna height and the EVA limits are assumptions. The 50 µGy dose budget is a planning number, not a health limit.
-- Only Chrome has been tested.
+CREATIVITY
+- It uses the rover's own measurements, not models: Curiosity measured radiation and weather at this very site, so the walk is planned with what was actually measured there.
+- It goes from planning to doing: the same numbers flow from the map to the EVA screen and to a paper wrist card.
+- It shows one dataset through two lenses, the astronaut and the electronics they carry.
+
+FACTORS CONSIDERED
+- Honest limits: RAD records no position, so radiation is shown over time at the rover, not as a map. The two routes' dose rates were measured 13 years apart, so their difference is not read as an altitude effect.
+- Accessibility: high-contrast EVA screen, 72 px buttons, keyboard control, and colours readable with colour blindness.
+- Every assumption (walking speed, slope limits, antenna height) is labelled and listed.
+- Every data source is credited with links on the Sources page.
+
+TOOLS
+HTML, CSS and JavaScript with Leaflet 1.9.4 (no build step); Python 3 and GDAL 3.8 for data processing; headless Chrome for automated checks; GitHub Pages for hosting. Claude Code (Anthropic) was used as a coding tool; see the SI section.
+
 
 ## Use of Super Intelligence (SI)
 Yes. Claude Code (Anthropic), an AI coding assistant, was used as a tool. It helped plan the work, wrote and edited the website code and the data-processing scripts, and drafted documentation text, using Claude Fable 5.2, Claude Opus 5.5 and Claude Sonnet. All data processing and checks were run by scripts in the repository, on NASA and USGS source files. The assistant did not supply any measurements. The idea of how to solve the challenge is the project owner's: a layered map of Gale Crater, built from NASA mission data, for planning a walking EVA, with an astronaut-facing view and the same data read for its impact on electronics. The owner chose the challenge, set the direction, and reviewed and approved the output. The AI assistant was used as a tool to plan and carry out the implementation; its working notes are kept in Plan/. No AI-generated images, video or audio are used. The images are NASA data or screenshots of the app. The SI use is also stated in the README, on the Sources page, and in each page's generator meta tag.

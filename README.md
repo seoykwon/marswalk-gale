@@ -4,8 +4,8 @@
 
 Marswalk is an interactive web map for planning an astronaut's walking traverse (EVA) in Gale Crater, Mars. It stacks NASA and USGS data on one map: MRO CTX and HiRISE imagery, a 1 m HiRISE terrain model, Mars Odyssey THEMIS thermal imagery, MGS MOLA topography, and Curiosity's own RAD radiation and REMS weather measurements. It turns them into numbers a planner can act on: distance, walking time, climb, slope hazards, comms line of sight, radiation dose and ground-temperature swing for two routes (route A, a flat walk from Bradbury Landing to Yellowknife Bay; route B, a steeper route on the lower slopes of Mount Sharp). A second view reads the same data for the electronics carried on the walk. It is a static site (Leaflet, pre-cut tiles, no server logic) and works offline after the first visit.
 
-**Live site: TODO**  
-**Repository: TODO**
+**Live site: https://seoykwon.github.io/marswalk-gale/**  
+**Repository: https://github.com/seoykwon/marswalk-gale**
 
 ## 2. Pages
 
