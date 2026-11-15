@@ -1,0 +1,78 @@
+{
+ "generated": "2026-11-15T09:17:26.362Z",
+ "total_bytes": 1077176,
+ "screens": [
+  {
+   "file": "map-route-b.jpg",
+   "width": 1280,
+   "height": 800,
+   "bytes": 146903,
+   "alt": "Marswalk planning map: route B drawn over Gale Crater imagery, with the route panel showing distance, time and hazards.",
+   "shows": "Map, route B selected, Route tab of the side panel.",
+   "jpeg_quality": 64
+  },
+  {
+   "file": "map-radiation.jpg",
+   "width": 1280,
+   "height": 800,
+   "bytes": 135636,
+   "alt": "Map with the Radiation tab open: charts of the dose rate measured by the Curiosity RAD instrument over recent sols.",
+   "shows": "Map, Radiation tab, dose-rate charts (RAD measurements).",
+   "jpeg_quality": 64
+  },
+  {
+   "file": "map-temperature.jpg",
+   "width": 1280,
+   "height": 800,
+   "bytes": 145327,
+   "alt": "Map with the Temperature tab open: ground and air temperature charts measured by the Curiosity REMS instrument.",
+   "shows": "Map, Temperature tab, REMS temperature charts.",
+   "jpeg_quality": 70
+  },
+  {
+   "file": "map-draw.jpg",
+   "width": 1280,
+   "height": 800,
+   "bytes": 142424,
+   "alt": "Map with a hand-drawn line and the Draw tab showing its length, elevation profile and slope statistics.",
+   "shows": "Draw tool: a 4-point line analysed against the 10 m terrain grid.",
+   "jpeg_quality": 58
+  },
+  {
+   "file": "map-layers.jpg",
+   "width": 1280,
+   "height": 800,
+   "bytes": 148828,
+   "alt": "Map zoomed on route B with slope and line-of-sight layers switched on over the satellite imagery.",
+   "shows": "Layer overlays (slope, line of sight and others) on route B at zoom 15; layer list on the left.",
+   "jpeg_quality": 76
+  },
+  {
+   "file": "eva-landscape.jpg",
+   "width": 1280,
+   "height": 800,
+   "bytes": 145412,
+   "alt": "EVA replay screen in landscape: map with the walker position and cards for next stop, turnaround margin, slope, dose and comms, with the replay controls below.",
+   "shows": "EVA mode at about 30% of the replay, 1280x800.",
+   "jpeg_quality": 76
+  },
+  {
+   "file": "eva-portrait.jpg",
+   "width": 390,
+   "height": 844,
+   "bytes": 68093,
+   "alt": "EVA replay screen on a phone in portrait: header, map, status cards and large replay buttons.",
+   "shows": "EVA mode at about 30% of the replay, 390x844 phone viewport.",
+   "jpeg_quality": 82
+  },
+  {
+   "file": "cuff-sheet.jpg",
+   "width": 680,
+   "height": 907,
+   "bytes": 144553,
+   "alt": "First printable cuff checklist sheet: a grid of small cards with the stop, time, distance and limits for a walking EVA.",
+   "shows": "First sheet of the cuff checklist (A4 layout, 8 cards per page), cropped to the sheet.",
+   "jpeg_quality": 70
+  }
+ ]
+}

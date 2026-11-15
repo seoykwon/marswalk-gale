@@ -1,0 +1,12 @@
+# Raw source data (multi-GB; download instructions in README / SOURCES.md)
+/MarsTrek/
+/Radiation/
+/Weather/
+/Vector/
+/Geology/
+/Photos/
+/Reference/
+# Intermediate products
+/work/
+.DS_Store
+.claude/settings.local.json

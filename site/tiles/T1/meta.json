@@ -1,0 +1,278 @@
+{
+ "id": "T1",
+ "format": "jpg",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 9,
+   "zmax": 13,
+   "bbox": [
+    137.1224711,
+    -4.9254743,
+    137.7298129,
+    -4.2489631
+   ],
+   "area": "full",
+   "source_file": "work/stage3/T1_hillshade_5m.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.412935,
+    -4.624204,
+    137.456136,
+    -4.582389
+   ],
+   "area": "R1",
+   "source_file": "work/stage3/T1_hillshade_1m_rect0.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.380611,
+    -4.651955,
+    137.420364,
+    -4.616863
+   ],
+   "area": "R2",
+   "source_file": "work/stage3/T1_hillshade_1m_rect1.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.348543,
+    -4.734039,
+    137.389076,
+    -4.64515
+   ],
+   "area": "R3",
+   "source_file": "work/stage3/T1_hillshade_1m_rect2.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.372368,
+    -4.830346,
+    137.417001,
+    -4.724866
+   ],
+   "area": "R4",
+   "source_file": "work/stage3/T1_hillshade_1m_rect3.tif"
+  }
+ ],
+ "minzoom": 9,
+ "maxzoom": 15,
+ "tiles_total": 1865,
+ "bytes_total": 16059806,
+ "per_zoom": {
+  "9": {
+   "tiles": 6,
+   "bytes": 54268
+  },
+  "10": {
+   "tiles": 20,
+   "bytes": 207068
+  },
+  "11": {
+   "tiles": 72,
+   "bytes": 717492
+  },
+  "12": {
+   "tiles": 255,
+   "bytes": 2342526
+  },
+  "13": {
+   "tiles": 928,
+   "bytes": 7052503
+  },
+  "14": {
+   "tiles": 136,
+   "bytes": 1679382
+  },
+  "15": {
+   "tiles": 448,
+   "bytes": 4006567
+  }
+ },
+ "source": "HiRISE DEM Gale_DEM_SMG_1m.tif: 5 m mean DEM (z9-13) and 1 m DEM (z14-15 rectangles), gdaldem hillshade -multidirectional, vertical exaggeration x2",
+ "attribution": "NASA/JPL-Caltech/UArizona (HiRISE DEM)",
+ "built": "2026-11-15T02:54:23",
+ "build_seconds": 17.1,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 9,
+   "grid": [
+    2,
+    3
+   ],
+   "written": 6,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 10,
+   "grid": [
+    4,
+    5
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.2
+  },
+  {
+   "part": 0,
+   "z": 11,
+   "grid": [
+    8,
+    9
+   ],
+   "written": 72,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.3,
+   "cut_s": 0.5
+  },
+  {
+   "part": 0,
+   "z": 12,
+   "grid": [
+    15,
+    17
+   ],
+   "written": 255,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.4,
+   "cut_s": 1.7
+  },
+  {
+   "part": 0,
+   "z": 13,
+   "grid": [
+    29,
+    32
+   ],
+   "written": 928,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 1.1,
+   "cut_s": 5.6
+  },
+  {
+   "part": 1,
+   "z": 14,
+   "grid": [
+    5,
+    4
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.1,
+   "cut_s": 0.2
+  },
+  {
+   "part": 1,
+   "z": 15,
+   "grid": [
+    9,
+    8
+   ],
+   "written": 72,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.5
+  },
+  {
+   "part": 2,
+   "z": 14,
+   "grid": [
+    5,
+    4
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.1,
+   "cut_s": 0.2
+  },
+  {
+   "part": 2,
+   "z": 15,
+   "grid": [
+    8,
+    7
+   ],
+   "written": 56,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.4
+  },
+  {
+   "part": 3,
+   "z": 14,
+   "grid": [
+    5,
+    9
+   ],
+   "written": 45,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.3
+  },
+  {
+   "part": 3,
+   "z": 15,
+   "grid": [
+    8,
+    17
+   ],
+   "written": 136,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.3,
+   "cut_s": 1.3
+  },
+  {
+   "part": 4,
+   "z": 14,
+   "grid": [
+    6,
+    10
+   ],
+   "written": 60,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.4
+  },
+  {
+   "part": 4,
+   "z": 15,
+   "grid": [
+    10,
+    20
+   ],
+   "written": 200,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.4,
+   "cut_s": 1.8
+  }
+ ],
+ "jpeg_quality": 80
+}

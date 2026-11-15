@@ -1,0 +1,118 @@
+{
+ "id": "E1",
+ "format": "jpg",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 5,
+   "zmax": 9,
+   "bbox": [
+    136.0,
+    -7.25,
+    139.4,
+    -2.8
+   ],
+   "area": "full",
+   "source_file": "work/stage3/E1_color.tif"
+  }
+ ],
+ "minzoom": 5,
+ "maxzoom": 9,
+ "tiles_total": 230,
+ "bytes_total": 1793573,
+ "per_zoom": {
+  "5": {
+   "tiles": 2,
+   "bytes": 11049
+  },
+  "6": {
+   "tiles": 6,
+   "bytes": 37649
+  },
+  "7": {
+   "tiles": 20,
+   "bytes": 134286
+  },
+  "8": {
+   "tiles": 48,
+   "bytes": 405005
+  },
+  "9": {
+   "tiles": 154,
+   "bytes": 1205584
+  }
+ },
+ "source": "THEMIS quantitative thermal inertia mosaic 30S120E 100 m/px, shifted +149 m E / +399 m N (Plan/06)",
+ "attribution": "NASA/JPL-Caltech/ASU (THEMIS), USGS",
+ "built": "2026-11-15T02:47:25",
+ "build_seconds": 2.6,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 5,
+   "grid": [
+    1,
+    2
+   ],
+   "written": 2,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 6,
+   "grid": [
+    2,
+    3
+   ],
+   "written": 6,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 7,
+   "grid": [
+    4,
+    5
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.2
+  },
+  {
+   "part": 0,
+   "z": 8,
+   "grid": [
+    6,
+    8
+   ],
+   "written": 48,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.3,
+   "cut_s": 0.3
+  },
+  {
+   "part": 0,
+   "z": 9,
+   "grid": [
+    11,
+    14
+   ],
+   "written": 154,
+   "dropped_empty": 0,
+   "resampling": "bilinear",
+   "warp_s": 0.2,
+   "cut_s": 1.0
+  }
+ ],
+ "jpeg_quality": 80
+}

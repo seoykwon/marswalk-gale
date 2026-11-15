@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marswalk · Map</title>
+<meta name="description" content="Plan a walking EVA in Gale Crater, Mars, with Curiosity rover measurements (radiation, ground temperature, slope, line of sight).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c1440e%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="src/app.css">
+</head>
+<body>
+<a class="skip" href="#panel" data-i18n="ui.skip_to_panel">Skip to panels</a>
+<header class="topbar">
+  <h1 class="app-title"><a class="home-link" id="lnk-home" href="index.html" data-i18n-title="ui.home_title" title="Home: project overview"><span data-i18n="ui.app_title">Marswalk</span></a>
+    <small class="app-sub" data-i18n="ui.app_sub">Gale Crater EVA planner</small></h1>
+  <button type="button" id="btn-layers" class="btn layers-toggle" aria-expanded="false" aria-controls="layers" data-i18n="ui.layers">Layers</button>
+  <nav class="jump" aria-label="Map views" data-i18n-aria="ui.jump_label">
+    <button type="button" data-jump="gale" data-i18n="ui.jump_gale">Gale</button>
+    <button type="button" data-jump="A" data-i18n="ui.jump_A">Route A</button>
+    <button type="button" data-jump="B" data-i18n="ui.jump_B">Route B</button>
+  </nav>
+  <div id="offline-slot" class="offline-slot" data-btn-class="btn" data-dict="main"></div>
+</header>
+<main class="layout">
+  <aside id="layers" class="sidebar" aria-labelledby="layers-h">
+    <h2 id="layers-h" data-i18n="ui.layers">Layers</h2>
+    <div id="layer-list"></div>
+  </aside>
+  <section class="mapwrap" aria-label="Map" data-i18n-aria="ui.map_label">
+    <div id="map"></div>
+    <div id="readout" class="readout" aria-live="off"></div>
+    <div id="drawbar" class="drawbar" role="toolbar" aria-label="Draw tool" data-i18n-aria="draw.toolbar">
+      <button type="button" class="btn" id="dr-toggle" aria-pressed="false" data-i18n="draw.btn_draw">Draw line</button>
+      <button type="button" class="btn" id="dr-undo" disabled data-i18n="draw.btn_undo">Undo point</button>
+      <button type="button" class="btn" id="dr-finish" disabled data-i18n="draw.btn_finish">Finish</button>
+      <button type="button" class="btn" id="dr-clear" disabled data-i18n="draw.btn_clear">Clear</button>
+      <span id="dr-status" class="dr-status" role="status" aria-live="polite"></span>
+    </div>
+    <div class="crosshair" aria-hidden="true"></div>
+  </section>
+  <aside id="panel" class="panel" tabindex="-1" data-sheet="half">
+    <button type="button" id="sheet-handle" class="sheet-handle" aria-expanded="true"
+      data-i18n-aria="ui.sheet_toggle" aria-label="Show or hide the panel"><span aria-hidden="true"></span></button>
+    <div class="tabs" role="tablist" aria-label="Panels" data-i18n-aria="ui.panels">
+      <button role="tab" id="tab-route" aria-controls="pane-route" aria-selected="true" data-i18n="ui.tab_route">Route</button>
+      <button role="tab" id="tab-rad" aria-controls="pane-rad" aria-selected="false" tabindex="-1" data-i18n="ui.tab_rad">Radiation</button>
+      <button role="tab" id="tab-temp" aria-controls="pane-temp" aria-selected="false" tabindex="-1" data-i18n="ui.tab_temp">Temperature</button>
+      <button role="tab" id="tab-draw" aria-controls="pane-draw" aria-selected="false" tabindex="-1" data-i18n="ui.tab_draw">Draw</button>
+      <button role="tab" id="tab-about" aria-controls="pane-about" aria-selected="false" tabindex="-1" data-i18n="ui.tab_about">About</button>
+    </div>
+    <div class="pane" role="tabpanel" id="pane-route" aria-labelledby="tab-route"></div>
+    <div class="pane" role="tabpanel" id="pane-rad" aria-labelledby="tab-rad" hidden></div>
+    <div class="pane" role="tabpanel" id="pane-temp" aria-labelledby="tab-temp" hidden></div>
+    <div class="pane" role="tabpanel" id="pane-draw" aria-labelledby="tab-draw" hidden></div>
+    <div class="pane" role="tabpanel" id="pane-about" aria-labelledby="tab-about" hidden></div>
+  </aside>
+</main>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lb-title" hidden>
+  <div class="lb-inner">
+    <button type="button" class="lb-close" data-i18n-aria="ui.close" aria-label="Close">×</button>
+    <h2 id="lb-title"></h2>
+    <img id="lb-img" alt="">
+    <p id="lb-meta" class="small"></p>
+  </div>
+</div>
+<div id="boot-error" class="boot-error" hidden></div>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script type="module" src="src/main.js"></script>
+<script type="module" src="src/sw-register.js"></script>
+</body>
+</html>

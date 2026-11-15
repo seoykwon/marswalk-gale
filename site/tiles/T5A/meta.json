@@ -1,0 +1,164 @@
+{
+ "id": "T5A",
+ "format": "png",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 9,
+   "zmax": 13,
+   "bbox": [
+    137.340409,
+    -4.690691,
+    137.542857,
+    -4.488243
+   ],
+   "area": "full",
+   "source_file": "work/stage3/T5_A_viewshed_cls.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.412935,
+    -4.624204,
+    137.456136,
+    -4.582389
+   ],
+   "area": "route_A",
+   "source_file": "work/stage3/T5_A_viewshed_cls.tif"
+  }
+ ],
+ "minzoom": 9,
+ "maxzoom": 15,
+ "tiles_total": 234,
+ "bytes_total": 295227,
+ "per_zoom": {
+  "9": {
+   "tiles": 4,
+   "bytes": 15753
+  },
+  "10": {
+   "tiles": 4,
+   "bytes": 17254
+  },
+  "11": {
+   "tiles": 9,
+   "bytes": 24932
+  },
+  "12": {
+   "tiles": 25,
+   "bytes": 53285
+  },
+  "13": {
+   "tiles": 100,
+   "bytes": 140430
+  },
+  "14": {
+   "tiles": 20,
+   "bytes": 11173
+  },
+  "15": {
+   "tiles": 72,
+   "bytes": 32400
+  }
+ },
+ "source": "gdal_viewshed on the 5 m mean HiRISE DEM (metre copy), observer/target height 2.0/2.0 m, curvature coefficient 1 (no refraction)",
+ "attribution": "NASA/JPL-Caltech/UArizona (HiRISE DEM); antenna height: assumption",
+ "built": "2026-11-15T05:26:42",
+ "build_seconds": 2.8,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 9,
+   "grid": [
+    2,
+    2
+   ],
+   "written": 4,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.2,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 10,
+   "grid": [
+    2,
+    2
+   ],
+   "written": 4,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.1,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 11,
+   "grid": [
+    3,
+    3
+   ],
+   "written": 9,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.1,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 12,
+   "grid": [
+    5,
+    5
+   ],
+   "written": 25,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.1,
+   "cut_s": 0.2
+  },
+  {
+   "part": 0,
+   "z": 13,
+   "grid": [
+    10,
+    10
+   ],
+   "written": 100,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.2,
+   "cut_s": 0.7
+  },
+  {
+   "part": 1,
+   "z": 14,
+   "grid": [
+    5,
+    4
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.2
+  },
+  {
+   "part": 1,
+   "z": 15,
+   "grid": [
+    9,
+    8
+   ],
+   "written": 72,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.4
+  }
+ ],
+ "jpeg_quality": null
+}

@@ -1,0 +1,7 @@
+{
+  "_comment": "Electronics page strings (Plan/18 2-4, W6). English only. Numbers never live here: prose numbers come from data/site_facts.json (data-fact), chart labels from en.json (same strings as the map panels).",
+  "doc_title": "Electronics impact · Marswalk",
+  "tag": {
+    "background": "General background"
+  }
+}

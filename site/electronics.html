@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electronics impact · Marswalk</title>
+<meta name="description" content="What Curiosity's RAD and REMS measurements at the Marswalk route sites say about total ionizing dose, single-event effects and thermal cycling for electronics. Measured values only; no part tolerance numbers.">
+<meta name="generator" content="Built with Claude Code (Anthropic)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c1440e%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="src/app.css">
+<link rel="stylesheet" href="src/site/site.css">
+<style>
+  /* page-only layout (site.css is shared and not edited by W6) */
+  .el-chart { max-width: 36rem; margin: 12px 0 8px; }
+  .bg-tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 0 6px; margin-right: 4px;
+    border: 1px solid var(--border); border-radius: 4px; color: var(--text-2); background: var(--surface-2); }
+  .site-main ul.limits li { margin-bottom: 6px; }
+</style>
+</head>
+<body class="site" data-dict="elec">
+<a class="skip" href="#main" data-s="skip">Skip to content</a>
+<header class="site-head">
+  <nav id="site-nav" aria-label="Site">
+    <a class="site-name" href="index.html">Marswalk</a>
+    <ul>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="eva.html?route=B">EVA replay</a></li>
+      <li><a href="cuff.html?route=B">Cuff checklist</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main" class="site-main" tabindex="-1">
+  <h1>Electronics impact: what the rover measured</h1>
+  <p class="prose">Curiosity's radiation detector (RAD) and weather station (REMS) recorded the environment at the two route sites. This page reads those records the way an electronics designer would: total ionizing dose, single-event effects and thermal cycling. It shows measured values only. It quotes no component tolerance numbers; comparisons with parts are qualitative.</p>
+  <p class="prose muted">Sentences marked <span class="bg-tag" data-s="tag.background">General background</span> are standard engineering knowledge, stated without a source on this site. Every number comes from the measurements.</p>
+
+  <dl class="facts">
+    <div><dt>Silicon dose rate, sols <span data-fact="rad_recent_sols">4613–4843</span></dt><dd data-fact="rad_recent_B_mean">6.898 µGy/h</dd></div>
+    <div><dt>Silicon dose, one Earth year</dt><dd><span data-fact="rad_recent_B_year_mGy">60.5 mGy</span></dd></div>
+    <div><dt>Mean daily ground-temperature swing</dt><dd data-fact="gts_recent_range_mean">83.1 K</dd></div>
+    <div><dt>Thermal cycles per Mars year</dt><dd data-fact="mars_year_sols">669</dd></div>
+  </dl>
+
+  <h2 id="tid">Total ionizing dose (TID)</h2>
+  <p>RAD's detector B is silicon, so its absorbed dose is the dose a silicon device on the rover deck receives. Sols <span data-fact="rad_recent_sols">4613–4843</span> (<span data-fact="rad_recent_years">2025–2026</span>, route B site) averaged <span data-fact="rad_recent_B_mean">6.898 µGy/h</span>. Over one Earth year that is <span data-fact="rad_recent_B_year_mGy">60.5 mGy</span> = <span data-fact="rad_recent_B_year_rad" data-fact-part="n">6.05</span> rad(Si).</p>
+  <p>Sols <span data-fact="rad_early_sols">1–359</span> (<span data-fact="rad_early_years">2012–2013</span>, route A site) averaged <span data-fact="rad_early_B_mean">9.029 µGy/h</span>, or <span data-fact="rad_early_B_year_mGy">79.1 mGy</span> per Earth year. The two periods are <span data-fact="rad_epoch_gap_years">13 years</span> apart, so the difference is not read as an effect of altitude or place.</p>
+  <p>A device carried on one route B EVA (<span data-fact="routeB_eva_total">2 h 34 min</span>) would collect <span data-fact="routeB_dose_B">17.7 µGy</span>(Si) at the recent mean rate.</p>
+  <p><span class="bg-tag" data-s="tag.background">General background</span> TID shifts transistor thresholds and raises leakage as dose accumulates. A designer compares the mission dose with the TID rating on the part's datasheet, in krad(Si). This page states no such rating.</p>
+  <div id="el-r1" class="el-chart chart-slot" data-chart="r1"></div>
+  <p class="small">The same chart as R1 in the map's Radiation tab. The marked point is sol <span data-fact="spike_sol">4716</span>.</p>
+
+  <h3 id="sol4716">Sol <span data-fact="spike_sol">4716</span>: transient event, cause unconfirmed</h3>
+  <p>On sol <span data-fact="spike_sol">4716</span> the detector E sol mean rose to <span data-fact="spike_E_solmean">7.86 µGy/h</span>, with a largest single observation of <span data-fact="spike_E_max">11.95 µGy/h</span>, after a rise of about <span data-fact="spike_rise_h">7 h</span>. It is the only sol of the period above the transient-event threshold. The cause has not been checked against solar-activity records, so it is called a transient event here, not a solar particle event.</p>
+  <p><span class="bg-tag" data-s="tag.background">General background</span> For electronics, the concern during such an event is the higher particle flux, which raises the chance of single-event effects, more than the small extra total dose.</p>
+
+  <h2 id="see">Single-event effects (SEE)</h2>
+  <p>RAD also records the LET (linear energy transfer) spectrum in detector B. For sols <span data-fact="rad_recent_sols">4613–4843</span> it has <span data-fact="let_recent_bins">52</span> bins. The relative density peaks in the <span data-fact="let_peak_keV_um">0.283 keV/µm</span> bin and falls steeply toward high LET: high-LET particles are present, but rare. The chart is R5 in the <a href="map.html?tab=rad">map's Radiation tab</a>.</p>
+  <p><span class="bg-tag" data-s="tag.background">General background</span> An SEE is caused by one energetic particle, not by accumulated dose. A designer places a part's heavy-ion test results (its LET threshold and cross-section) against a spectrum like this one to judge how often upsets could occur.</p>
+  <p>This page computes no SEE rate. The spectrum gives shape only, with no absolute flux, and no part data is included.</p>
+
+  <h2 id="thermal">Thermal cycling</h2>
+  <p>REMS ground temperature at the route B site (the most recent Mars year, <span data-fact="gts_recent_n_full">561</span> sols with near-complete daily coverage) goes through one cycle per sol: <span data-fact="mars_year_sols">669</span> cycles per Mars year. The daily swing of hourly means averaged <span data-fact="gts_recent_range_mean">83.1 K</span> (smallest <span data-fact="gts_recent_range_min">59.8 K</span>, largest <span data-fact="gts_recent_range_max">111.0 K</span>).</p>
+  <p>The fastest mean warming is <span data-fact="gts_heat_rate_max">+17.4 K/h</span> in the hour starting <span data-fact="gts_heat_rate_hour">08:00</span> LMST. The fastest mean cooling is <span data-fact="gts_cool_rate_max">−14.2 K/h</span> in the hour starting <span data-fact="gts_cool_rate_hour">17:00</span>. On average <span data-fact="gts_h_below_m40">14.3 h</span> per sol are below <span data-fact="eva_min_ground_C">−40 °C</span>. That temperature is a comparison line only, not a part grade.</p>
+  <p><span class="bg-tag" data-s="tag.background">General background</span> Each swing strains solder joints and packages because materials expand by different amounts. Larger and more frequent swings bring fatigue sooner. Enclosures and heaters reduce what the electronics actually see.</p>
+  <div id="el-h2" class="el-chart chart-slot" data-chart="h2"></div>
+  <p class="small">The same chart as H2 in the map's Temperature tab (sols <span data-fact="rems_B_sols">4134–4843</span>). The daily curve and the hourly rates are H1 and H3 in the <a href="map.html?tab=temp">map's Temperature tab</a>.</p>
+
+  <h2 id="limits">What this data can and cannot say</h2>
+  <ul class="limits">
+    <li>Detector B is silicon: it is used here for the equipment dose. Detector E is a <span class="term" tabindex="0" data-term="E">plastic scintillator; used here as the body-side reading</span>. It is shown on the chart for comparison (sols <span data-fact="rad_recent_sols">4613–4843</span> mean <span data-fact="rad_recent_E_mean">6.434 µGy/h</span>), not used for electronics numbers.</li>
+    <li>RAD sits on the rover deck. The dose inside an equipment box depends on its shielding.</li>
+    <li>Absorbed dose (Gy, rad) only. No health limits are discussed.</li>
+    <li>No radiation map and no altitude dependence: RAD files carry no rover position.</li>
+    <li>Ground temperature is the environment an exposed surface sees, not the temperature inside equipment. Its mean long-term sensor uncertainty is <span data-fact="gts_unc_mean">9.07 K</span>.</li>
+    <li>Both records are short slices of the solar cycle and of Mars seasons.</li>
+    <li>No component tolerance numbers, temperature grades or SEE rates are given.</li>
+  </ul>
+  <p>More: <a href="map.html?tab=rad">Radiation tab</a> · <a href="map.html?tab=temp">Temperature tab</a> · <a href="eva.html?route=B">EVA replay</a>.</p>
+</main>
+<footer id="site-footer" aria-label="Site footer">
+  <p class="muted" data-todo="repo-url">Source code: repository link added at release</p>
+</footer>
+<script type="module" src="src/site/site.js"></script>
+<script type="module" src="src/site/electronics.js"></script>
+<script type="module" src="src/sw-register.js"></script>
+</body>
+</html>

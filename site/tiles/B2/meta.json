@@ -1,0 +1,293 @@
+{
+ "id": "B2",
+ "format": "jpg",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 10,
+   "zmax": 15,
+   "bbox": [
+    137.3267235,
+    -4.8756048,
+    137.478559,
+    -4.5550633
+   ],
+   "area": "full",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  },
+  {
+   "zmin": 16,
+   "zmax": 16,
+   "bbox": [
+    137.412935,
+    -4.624204,
+    137.456136,
+    -4.582389
+   ],
+   "area": "R1",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  },
+  {
+   "zmin": 16,
+   "zmax": 16,
+   "bbox": [
+    137.380611,
+    -4.651955,
+    137.420364,
+    -4.616863
+   ],
+   "area": "R2",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  },
+  {
+   "zmin": 16,
+   "zmax": 16,
+   "bbox": [
+    137.348543,
+    -4.734039,
+    137.389076,
+    -4.64515
+   ],
+   "area": "R3",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  },
+  {
+   "zmin": 16,
+   "zmax": 16,
+   "bbox": [
+    137.372368,
+    -4.830346,
+    137.417001,
+    -4.724866
+   ],
+   "area": "R4",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  },
+  {
+   "zmin": 17,
+   "zmax": 17,
+   "bbox": [
+    137.434885,
+    -4.597224,
+    137.456136,
+    -4.582389
+   ],
+   "area": "route_A",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  },
+  {
+   "zmin": 17,
+   "zmax": 17,
+   "bbox": [
+    137.372368,
+    -4.830346,
+    137.393469,
+    -4.798458
+   ],
+   "area": "route_B",
+   "source_file": "work/vrt/B2_hirise_color_25cm.vrt"
+  }
+ ],
+ "minzoom": 10,
+ "maxzoom": 17,
+ "tiles_total": 4555,
+ "bytes_total": 62600210,
+ "per_zoom": {
+  "10": {
+   "tiles": 6,
+   "bytes": 29100
+  },
+  "11": {
+   "tiles": 15,
+   "bytes": 100079
+  },
+  "12": {
+   "tiles": 40,
+   "bytes": 350305
+  },
+  "13": {
+   "tiles": 120,
+   "bytes": 1275688
+  },
+  "14": {
+   "tiles": 450,
+   "bytes": 4957965
+  },
+  "15": {
+   "tiles": 1711,
+   "bytes": 21364700
+  },
+  "16": {
+   "tiles": 1637,
+   "bytes": 25340454
+  },
+  "17": {
+   "tiles": 576,
+   "bytes": 9181919
+  }
+ },
+ "source": "MRO HiRISE LRGB colour mosaic of the Curiosity traverse, 78 quads (MarsTrek/extra/MSL_Gale_HiRISE-LRGB_78quads_sharp_cog.tif, 0.25 m/px)",
+ "attribution": "NASA/JPL-Caltech/UArizona (HiRISE), NASA Mars Trek",
+ "built": "2026-11-15T02:51:40",
+ "build_seconds": 51.9,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 10,
+   "grid": [
+    2,
+    3
+   ],
+   "written": 6,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 11,
+   "grid": [
+    3,
+    5
+   ],
+   "written": 15,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.1,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 12,
+   "grid": [
+    5,
+    8
+   ],
+   "written": 40,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.3
+  },
+  {
+   "part": 0,
+   "z": 13,
+   "grid": [
+    8,
+    15
+   ],
+   "written": 120,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.5,
+   "cut_s": 1.2
+  },
+  {
+   "part": 0,
+   "z": 14,
+   "grid": [
+    15,
+    30
+   ],
+   "written": 450,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 1.5,
+   "cut_s": 3.1
+  },
+  {
+   "part": 0,
+   "z": 15,
+   "grid": [
+    29,
+    59
+   ],
+   "written": 1711,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 5.0,
+   "cut_s": 13.0
+  },
+  {
+   "part": 1,
+   "z": 16,
+   "grid": [
+    17,
+    16
+   ],
+   "written": 272,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 1.2,
+   "cut_s": 2.6
+  },
+  {
+   "part": 2,
+   "z": 16,
+   "grid": [
+    16,
+    14
+   ],
+   "written": 224,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 1.1,
+   "cut_s": 2.4
+  },
+  {
+   "part": 3,
+   "z": 16,
+   "grid": [
+    15,
+    33
+   ],
+   "written": 495,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 2.8,
+   "cut_s": 3.5
+  },
+  {
+   "part": 4,
+   "z": 16,
+   "grid": [
+    18,
+    39
+   ],
+   "written": 702,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 2.4,
+   "cut_s": 4.6
+  },
+  {
+   "part": 5,
+   "z": 17,
+   "grid": [
+    16,
+    12
+   ],
+   "written": 192,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.8,
+   "cut_s": 1.2
+  },
+  {
+   "part": 6,
+   "z": 17,
+   "grid": [
+    16,
+    24
+   ],
+   "written": 384,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 1.5,
+   "cut_s": 2.4
+  }
+ ],
+ "jpeg_quality": 80
+}

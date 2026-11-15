@@ -1,0 +1,39 @@
+{
+  "_comment": "Shared strings for the site pages (home, method, electronics, sources): menu, footer, skip link. English only (Plan/18 user decision). Page text lives in the page's own dictionary (home.en.json, about.en.json, ...). Numbers never live here: they come from data/site_facts.json (scripts/61_site_facts.py) through data-fact attributes.",
+  "site": {
+    "name": "Marswalk",
+    "tagline": "Gale Crater EVA planner",
+    "home_aria": "Marswalk home"
+  },
+  "skip": "Skip to content",
+  "nav": {
+    "label": "Site",
+    "home": "Home",
+    "map": "Map",
+    "eva": "EVA replay",
+    "cuff": "Cuff checklist",
+    "about": "Method",
+    "electronics": "Electronics",
+    "sources": "Sources"
+  },
+  "footer": {
+    "label": "Site footer",
+    "repo": "Source code and data pipeline on GitHub",
+    "repo_pending": "Source code: repository link added at release"
+  },
+  "cards": {
+    "map_title": "Planning map",
+    "map_text": "Two walking routes on ground Curiosity drove, with slope, line of sight, radiation and ground temperature from the rover's own instruments.",
+    "map_link": "Open the map",
+    "eva_title": "EVA replay (simulation)",
+    "eva_text": "Replay a planned walk minute by minute with turnaround limits, dose, ground temperature and comms warnings.",
+    "eva_link": "Open EVA replay",
+    "cuff_title": "Cuff checklist",
+    "cuff_text": "Printable 90 × 60 mm cards for each stop, computed by the same code as the EVA replay.",
+    "cuff_link": "Open the checklist"
+  },
+  "home_tmp": {
+    "doc_title": "Marswalk",
+    "lead": "Plan a walking EVA in Gale Crater, Mars, with measurements from the Curiosity rover."
+  }
+}

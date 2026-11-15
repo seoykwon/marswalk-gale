@@ -1,0 +1,283 @@
+{
+  "_comment": "All assumptions live here (Plan/03 common rules, Plan/05 Q4). Values marked 'assumption' are not derived from data.",
+  "crs": {
+    "common": "+proj=longlat +R=3396190 +no_defs",
+    "mars_radius_m": 3396190,
+    "meters_per_degree": 59274.7
+  },
+  "walk": {
+    "flat_speed_kmh": 2.5,
+    "slope_moderate_deg": 5,
+    "slope_caution_deg": 15,
+    "slope_danger_deg": 25,
+    "speed_factor_moderate": 0.7,
+    "speed_factor_caution": 0.4,
+    "speed_factor_danger": 0.0,
+    "_speed_rule": "0-5 deg x1.0, 5-15 x0.7, 15-25 x0.4, >25 impassable (Plan/02 sec.5, Plan/09 decision)",
+    "max_round_trip_km": 4.0,
+    "_source": "assumption (Plan/05 Q4)"
+  },
+  "comms": {
+    "antenna_height_m": 2.0,
+    "target_height_m": 2.0,
+    "_source": "assumption"
+  },
+  "rad": {
+    "qc_required": "00000000",
+    "min_obs_duration_s": 600
+  },
+  "rems": {
+    "gts_confidence_suffix": "111",
+    "min_hours_covered_for_range": 20,
+    "missing_value": -999.0
+  },
+  "routes": {
+    "_comment": "Fixed in stage 4 (Plan/11). Built by scripts/40_route_build.py from the rover drive tracks: shortest path on the track graph (drops loops/backtracks), Douglas-Peucker simplification. line = [lon, lat] vertices (deg, east-positive, sphere R 3396190). Read by scripts/40_route_profile.py.",
+    "method": {
+      "source": "Vector/MSL_traverse/MSL_traverse.json + MSL_waypoints.json",
+      "connector_max_m": 8.0,
+      "connector_cost_factor": 1.25,
+      "simplify_tolerance_m": 5.0,
+      "sample_spacing_m": 2.0,
+      "return_rule": "same path back (assumption, Plan/09 4-2)"
+    },
+    "A": {
+      "name_en": "Route A - Bradbury Landing to Yellowknife Bay (flat reference)",
+      "name_ko": "경로 A — 브래드버리 착륙지 → 옐로나이프 만 (평탄 기준 경로)",
+      "stops": [
+        {
+          "sol": 3,
+          "site": 2,
+          "drive": 0,
+          "kind": "base",
+          "name_en": "Bradbury Landing",
+          "name_ko": "브래드버리 착륙지",
+          "lon": 137.441633,
+          "lat": -4.589467,
+          "rover_elev_m": -4500.971,
+          "rover_odometry_m": 0.0,
+          "basis": "Plan/02 sec.2 base (assumed): rover waypoint sol 3, site 2 drive 0",
+          "line_vertex": 0
+        },
+        {
+          "sol": 50,
+          "site": 4,
+          "drive": 2956,
+          "kind": "via",
+          "name_en": "Sol 50 (toward Glenelg)",
+          "name_ko": "sol 50 (글레넬그 방향)",
+          "lon": 137.4473045,
+          "lat": -4.59017575,
+          "rover_elev_m": -4515.546,
+          "rover_odometry_m": 414.88,
+          "basis": "Plan/02 sec.2 via point: rover waypoint sol 50, site 4 drive 2956",
+          "line_vertex": 8
+        },
+        {
+          "sol": 125,
+          "site": 5,
+          "drive": 1398,
+          "kind": "dest",
+          "name_en": "Yellowknife Bay",
+          "name_ko": "옐로나이프 만",
+          "lon": 137.4493306,
+          "lat": -4.58963671,
+          "rover_elev_m": -4520.886,
+          "rover_odometry_m": 638.41,
+          "basis": "Plan/02 sec.2 destination (137.4493E 4.5896S, -4,521 m): rover waypoint sol 125, site 5 drive 1398",
+          "line_vertex": 19
+        }
+      ],
+      "line": [
+        [137.441633, -4.589467],
+        [137.4416997, -4.5893457],
+        [137.4421132, -4.5893434],
+        [137.4428938, -4.5901213],
+        [137.4435925, -4.590325],
+        [137.4445809, -4.5898466],
+        [137.4450509, -4.5900416],
+        [137.4453105, -4.5904762],
+        [137.4473045, -4.5901757],
+        [137.4479001, -4.5900616],
+        [137.4481378, -4.5901517],
+        [137.4486547, -4.5899385],
+        [137.4486923, -4.5903633],
+        [137.4488285, -4.5904485],
+        [137.4489748, -4.5902287],
+        [137.4492113, -4.590237],
+        [137.4493493, -4.5900541],
+        [137.4492469, -4.5899204],
+        [137.4494842, -4.589765],
+        [137.4493306, -4.5896367]
+      ],
+      "build": {
+        "rover_track_m": 637.1,
+        "shortest_path_m": 598.2,
+        "simplified_m": 585.5,
+        "n_track_vertices": 338,
+        "n_path_vertices": 262,
+        "n_connectors_used": 8,
+        "n_line_vertices": 20,
+        "straight_base_dest_m": 454.9
+      }
+    },
+    "B": {
+      "name_en": "Route B - Mount Sharp slope, sol 4614 to sol 4996",
+      "name_ko": "경로 B — 샤프산 사면, sol 4614 → sol 4996 (경사 경로, 주 경로)",
+      "stops": [
+        {
+          "sol": 4614,
+          "site": 118,
+          "drive": 0,
+          "kind": "base",
+          "name_en": "Base B (sol 4614)",
+          "name_ko": "기지 B (sol 4614)",
+          "lon": 137.3794477,
+          "lat": -4.80520603,
+          "rover_elev_m": -3622.376,
+          "rover_odometry_m": 35834.99,
+          "basis": "Plan/02 sec.2 base (assumed): rover waypoint sol 4614, site 118 drive 0",
+          "line_vertex": 0
+        },
+        {
+          "sol": 4841,
+          "site": 121,
+          "drive": 762,
+          "kind": "via",
+          "name_en": "Sol 4841 (latest RAD/REMS site)",
+          "name_ko": "sol 4841 (RAD·REMS 최신 측정 지점)",
+          "lon": 137.3817563,
+          "lat": -4.81042121,
+          "rover_elev_m": -3595.812,
+          "rover_odometry_m": 36847.34,
+          "basis": "Plan/02 sec.2 via point: rover waypoint sol 4841, site 121 drive 762",
+          "line_vertex": 26
+        },
+        {
+          "sol": 4996,
+          "site": 124,
+          "drive": 1872,
+          "kind": "dest",
+          "name_en": "Sol 4996",
+          "name_ko": "sol 4996",
+          "lon": 137.3866964,
+          "lat": -4.82359728,
+          "rover_elev_m": -3498.715,
+          "rover_odometry_m": 38167.34,
+          "basis": "Plan/02 sec.2 destination: rover waypoint sol 4996, site 124 drive 1872",
+          "line_vertex": 53
+        }
+      ],
+      "line": [
+        [137.3794477, -4.805206],
+        [137.3795125, -4.8054139],
+        [137.3799173, -4.8054839],
+        [137.3799253, -4.805592],
+        [137.3796636, -4.8059382],
+        [137.3797814, -4.806064],
+        [137.3796661, -4.8064701],
+        [137.3792496, -4.8064258],
+        [137.3794291, -4.8067908],
+        [137.3796394, -4.8067624],
+        [137.3799685, -4.8069704],
+        [137.3798956, -4.8071683],
+        [137.3802114, -4.8077141],
+        [137.3800566, -4.8079266],
+        [137.3804005, -4.8079346],
+        [137.3807309, -4.8081566],
+        [137.3815081, -4.8077896],
+        [137.3817364, -4.8073626],
+        [137.3819096, -4.8076503],
+        [137.3826304, -4.8078992],
+        [137.3828539, -4.8081331],
+        [137.3828718, -4.8082721],
+        [137.3826697, -4.8084401],
+        [137.3826974, -4.8095431],
+        [137.3818621, -4.8099127],
+        [137.3819179, -4.8102534],
+        [137.3817563, -4.8104212],
+        [137.381621, -4.8112618],
+        [137.3820289, -4.8119149],
+        [137.382148, -4.8128489],
+        [137.3818456, -4.8131691],
+        [137.3813703, -4.8132269],
+        [137.3810274, -4.8137979],
+        [137.3816788, -4.8141552],
+        [137.3816059, -4.8144854],
+        [137.3823833, -4.8154071],
+        [137.382388, -4.8161615],
+        [137.3829616, -4.8168583],
+        [137.3831264, -4.8175031],
+        [137.3830992, -4.8179173],
+        [137.3828736, -4.818381],
+        [137.3829211, -4.818549],
+        [137.3832132, -4.8186347],
+        [137.3833251, -4.8205257],
+        [137.3842025, -4.8215148],
+        [137.384613, -4.8215934],
+        [137.3850163, -4.8200312],
+        [137.3850749, -4.8199109],
+        [137.3853222, -4.8200443],
+        [137.3856372, -4.8211434],
+        [137.3866196, -4.8220756],
+        [137.3867205, -4.8230206],
+        [137.386478, -4.8233303],
+        [137.3866964, -4.8235973]
+      ],
+      "build": {
+        "rover_track_m": 2383.0,
+        "shortest_path_m": 1904.2,
+        "simplified_m": 1824.5,
+        "n_track_vertices": 583,
+        "n_path_vertices": 404,
+        "n_connectors_used": 35,
+        "n_line_vertices": 54,
+        "straight_base_dest_m": 1171.2
+      }
+    }
+  },
+  "alignment_corrections": {
+    "_comment": "1단계 정렬 검증(Plan/06) 결과. 레이어 전체를 동(east_m)·북(north_m)으로 평행이동. scripts/10_unify_crs.sh가 적용.",
+    "E1_themis_ti_100m": {
+      "east_m": 149,
+      "north_m": 399,
+      "_basis": "THEMIS 야간 적외선 대비 9개 창(30km) 평균 어긋남 -149E/-399N, 상관 0.67-0.96"
+    },
+    "ctx_curiosity_16m": {
+      "east_m": 10,
+      "north_m": -19,
+      "_basis": "HiRISE·DEM 음영 대비 내부 4곳 평균 어긋남 -10E/+19N"
+    }
+  },
+  "layer_status": {
+    "_comment": "1단계 정렬 검증 결과 요약(Plan/06)",
+    "B1_ctx_5m": "FAIL - CTX 촬영띠(블록)마다 -250~+1,750m 어긋남, 띠 경계에서 불연속이라 VRT 평행이동/다항식으로 보정 불가. 바탕 지도는 ctx_curiosity_16m로 대체 권고",
+    "ctx_curiosity_16m": "PASS(보정 후) - 내부 17-34m(보정 전), DEM 가장자리 72-114m",
+    "B2_hirise_color_25cm": "PASS - DEM 음영 대비 0.5-1.8m, 착륙 지점 로버 본체와 경로 시작점 일치",
+    "dem_1m": "PASS - 웨이포인트 수평 이동 탐색에서 0이 최소",
+    "E1_themis_ti_100m": "PASS(보정 후) - 보정 전 약 430m 남쪽",
+    "B4_themis_night_ir_100m": "PASS(조건부) - 기준 대비 평균 약 90m, 창별 최대 270m(상관 낮음)",
+    "B5_themis_day_ir_100m": "PASS(조건부) - 43-229m",
+    "themis_vis_isis_18m": "FAIL(미사용 레이어) - 120-340m, 방향 일정치 않음",
+    "themis_day_ir_isis_100m": "FAIL(미사용 레이어) - 310-370m"
+  },
+  "eva": {
+    "max_duration_h": 6.0,
+    "reserve_min": 30,
+    "default_start_lmst_h": 10.0,
+    "daylight_end_lmst_h": 17.5,
+    "min_ground_temp_C": -40,
+    "dose_budget_uGy_E": 50,
+    "dest_stay_min": 30,
+    "turn_soon_margin_min": 15,
+    "slope_lookahead_m": 50,
+    "comms_lookahead_m": 100,
+    "station_max_spacing_m": 250,
+    "equipment_surface_sols": 30,
+    "offline_tile_buffer_m": 300,
+    "offline_max_zoom": 16,
+    "replay_speeds": [1, 30, 120, 600],
+    "sol_seconds": 88775.244,
+    "_source": "assumption (Plan/09 2-3, decisions 2026-11-15), except sol_seconds (mean Mars solar day, 1 LMST hour = 3698.97 s). dose_budget is a planning budget, not a health limit."
+  }
+}

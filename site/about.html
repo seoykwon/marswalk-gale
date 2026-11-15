@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Built with Claude Code (Anthropic)">
+<title>Marswalk · Method</title>
+<meta name="description" content="How Marswalk turns NASA data into a walking-EVA plan: pipeline, assumptions, validation and limits.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c1440e%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="src/app.css">
+<link rel="stylesheet" href="src/site/site.css">
+<style>.assump{display:inline-block;font-size:12px;font-weight:700;border:1px solid var(--accent);border-radius:4px;padding:0 6px;margin-right:6px}.nr{font-style:italic;color:var(--muted)}.gap{color:var(--text-2)}article.src{border:1px solid var(--border);border-radius:8px;padding:4px 16px 12px;margin:16px 0;background:var(--surface)}article.src dl{display:grid;grid-template-columns:9rem 1fr;gap:4px 12px}article.src dt{font-weight:600}article.src dd{margin:0;overflow-wrap:anywhere}@media(max-width:719px){article.src dl{grid-template-columns:1fr}}.site-main figure img{border:1px solid var(--border)}</style>
+</head>
+<body class="site" data-dict="about">
+<a class="skip" href="#main" data-s="skip">Skip to content</a>
+<header class="site-head"><nav id="site-nav" aria-label="Site"><a class="site-name" href="index.html">Marswalk</a></nav></header>
+<main id="main" class="site-main" tabindex="-1">
+<h1>Method</h1>
+<p class="prose">Marswalk is a planning and simulation aid built from public NASA and USGS data. It is not an operational or flight tool. This page lists how the numbers are made, what is assumed, how it was checked and where it stops being valid. Every number below is read from <code>data/site_facts.json</code>, which <code>scripts/61_site_facts.py</code> recomputes independently. Data origins are on the <a href="sources.html">Sources page</a>.</p>
+
+<h2 id="pipeline">1. Data pipeline</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Step</th><th>Scripts</th><th>What happens</th></tr></thead><tbody>
+<tr><td>1. Common coordinates</td><td><code>10_unify_crs.sh</code>, <code>11_check_alignment.py</code></td><td>Every raster gets one coordinate system (Mars sphere, longitude/latitude). Alignment is then checked against rover waypoints (section 4).</td></tr>
+<tr><td>2. Extract numbers</td><td><code>20_parse_rad.py</code>, <code>21_parse_rems.py</code>, <code>22_vectors.py</code>, <code>23_geology_rudolph.py</code></td><td>RAD dose rates and REMS temperatures are filtered and averaged per sol and per local hour; vector layers are clipped to Gale.</td></tr>
+<tr><td>3. Tiles and terrain</td><td><code>30_tiler.py</code>, <code>32_dem_derive.py</code>, <code>33_viewshed.py</code>, <code>34_grid.py</code>, <code>35_slope_check.py</code></td><td>Map tiles, slope, hillshade, line of sight from the base and a numeric elevation grid are derived from the 1 m HiRISE DEM. The map has <span data-fact="layers_own_tiles">11</span> own tile layers, <span data-fact="layers_external">2</span> external base layers and <span data-fact="layers_vector">14</span> vector layers.</td></tr>
+<tr><td>4. Routes</td><td><code>40_route_build.py</code>, <code>40_route_profile.py</code>, <code>44_route_validate.py</code></td><td>Routes A and B are cut from the rover's real traverse, sampled every 2 m and given slope, time, line of sight and dose.</td></tr>
+<tr><td>5. Web</td><td><code>50_export_config.py</code>, <code>55_eva_precache.py</code>, <code>61_site_facts.py</code></td><td>Settings and facts are exported to <code>site/</code>; the offline file list is built. No framework or build step.</td></tr>
+</tbody></table></div>
+<h3>Filtering rules</h3>
+<ul>
+<li>RAD: observations with a QC flag other than <span data-fact="rad_qc_required">00000000</span> are dropped, and so are observations shorter than <span data-fact="rad_min_obs_s">600 s</span>.</li>
+<li>REMS ground temperature: only readings whose confidence code ends in <span data-fact="rems_gts_conf">111</span> are used, averaged per local hour. Daily range is computed only for sols with enough hours covered.</li>
+<li>Solar longitude (Ls) per sol is computed with the <span data-fact="rems_ls_method">Mars24 (Allison &amp; McEwen 2000)</span> algorithm (see <a href="sources.html#ls">Sources</a>).</li>
+</ul>
+
+<h2 id="assumptions">2. Assumptions</h2>
+<p class="prose">These values are the project's choices, not NASA data. They can be changed in <code>scripts/config.json</code>.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Item</th><th class="n">Value</th></tr></thead><tbody>
+<tr><td><span class="assump">ASSUMPTION</span>Flat-ground walking speed (reduced in steps on steeper ground)</td><td class="n" data-fact="walk_speed_kmh">2.5 km/h</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Slope caution angle</td><td class="n" data-fact="slope_caution_deg">15°</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Slope danger angle (treated as impassable)</td><td class="n" data-fact="slope_danger_deg">25°</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Maximum EVA length</td><td class="n" data-fact="eva_max_h">6 h</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Time reserve</td><td class="n" data-fact="eva_reserve_min">30 min</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Stay at the destination</td><td class="n" data-fact="eva_stay_min">30 min</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>End of daylight</td><td class="n" data-fact="eva_daylight_end_h">17.5 h LMST</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Minimum ground temperature</td><td class="n" data-fact="eva_min_ground_C">−40 °C</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Dose budget (a planning number, not a health standard)</td><td class="n" data-fact="eva_dose_budget_uGy">50 µGy</td></tr>
+<tr><td><span class="assump">ASSUMPTION</span>Antenna height for line of sight</td><td class="n" data-fact="antenna_m">2 m</td></tr>
+</tbody></table></div>
+
+<h2 id="validation">3. Validation results</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Check</th><th class="n">Result</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>HiRISE DEM minus rover waypoint elevation (early sols)</td><td class="n"><span data-fact="dem_wp_mean_diff_m">−1.32 m</span> mean, <span data-fact="dem_wp_n">94</span> points</td><td>DEM and rover positions agree to about a metre.</td></tr>
+<tr><td>CTX 5 m mosaic offset</td><td class="n">up to about <span data-fact="ctx5_offset_max_m">1,550 m</span></td><td>Reliable match points were off by up to this much, so that mosaic was not used. The 16 m CTX mosaic replaces it. Offset at the landing site: <span data-fact="ctx5_offset_landing_m">1,153 m</span>.</td></tr>
+<tr><td>Tile position, sample tiles</td><td class="n">at most <span data-fact="tile_shift_max_px">0.13 px</span></td><td>Generated tiles sit where they should.</td></tr>
+<tr><td>5 m DEM slope minus rover tilt (median)</td><td class="n"><span data-fact="slope5_tilt_median_diff">−0.81°</span>, r = <span data-fact="slope5_tilt_r">0.78</span></td><td>Slope from the DEM tracks what the rover measured, but reads low on steep ground: at sol <span data-fact="routeB_max_tilt_sol">4970</span> the rover tilted <span data-fact="routeB_max_tilt_deg">24.0°</span> where the steepest 5 m slope on route B is <span data-fact="routeB_max_slope_deg">17.4°</span>.</td></tr>
+<tr><td>Route self-checks</td><td class="n" data-fact="checks_route">34/34</td><td>Distances, times and turnaround limits recomputed independently.</td></tr>
+<tr><td>Headless Chrome checks</td><td class="n"><span data-fact="checks_panel">130/130</span> panels, <span data-fact="checks_eva">84/84</span> EVA, <span data-fact="checks_cuff">52/52</span> cuff, <span data-fact="checks_offline">61/61</span> offline, <span data-fact="checks_selftest">77/77</span> self-test</td><td>Numbers on screen equal the data files; pages work offline.</td></tr>
+</tbody></table></div>
+
+<h2 id="limits">4. Limits</h2>
+<ul>
+<li><strong>Route A and route B were measured <span data-fact="rad_epoch_gap_years">13 years</span> apart</strong>, and the gap is not an altitude or site effect. Route A radiation is from <span data-fact="rad_early_years">2012–2013</span> (sols <span data-fact="rad_early_sols">1–359</span>, B-detector mean <span data-fact="rad_early_B_mean">9.029 µGy/h</span>, <span data-fact="rad_early_n_valid">14,059</span> valid observations). Route B is from <span data-fact="rad_recent_years">2025–2026</span> (sols <span data-fact="rad_recent_sols">4613–4843</span>, mean <span data-fact="rad_recent_B_mean">6.898 µGy/h</span>, <span data-fact="rad_recent_n_valid">19,502</span> observations). The two periods are <span data-fact="rad_epoch_gap_years">13 years</span> apart, so their difference must not be read as an effect of altitude or location; this data cannot separate the two.</li>
+<li>Radiation is a time record at the rover's place, not a map. The rover position fields in the RAD files are placeholders.</li>
+<li>The E detector (plastic) is used as a body-side reading only. No tolerance or hardware advice is derived.</li>
+<li>Ground temperature is a surface brightness temperature with a mean long-term uncertainty of <span data-fact="gts_unc_mean">9.07 K</span>.</li>
+<li>The EVA replay is a simulation: positions are replayed, not measured; speeds and limits are the assumptions above.</li>
+<li>Line of sight uses terrain only, with antenna and target at the assumed height. It is not a radio link budget.</li>
+<li>Two base layers (B3, B6) are loaded live from NASA Mars Trek and need a network connection; no terms of use were found for them.</li>
+<li>Tested only in headless Chrome. Other browsers are not verified.</li>
+</ul>
+
+<h2 id="screens">5. Screens</h2>
+<figure><img src="img/map-route-b.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="Marswalk planning map: route B drawn over Gale Crater imagery, with the route panel showing distance, time and hazards."><figcaption>Planning map, route B.</figcaption></figure>
+<figure><img src="img/map-radiation.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="Map with the Radiation tab open: charts of the dose rate measured by the Curiosity RAD instrument over recent sols."><figcaption>Radiation tab (RAD measurements).</figcaption></figure>
+</main>
+<footer id="site-footer" aria-label="Site footer"><p class="muted">Source code: repository link added at release</p></footer>
+<script type="module" src="src/site/site.js"></script>
+<script type="module" src="src/sw-register.js"></script>
+</body>
+</html>

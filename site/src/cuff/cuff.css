@@ -1,0 +1,65 @@
+/* Cuff checklist. Screen = preview of the paper sheets. Print = black on white, A4, 2 x 4 cards of 90 x 60 mm.
+   The card size and 8-per-page layout are assumptions (Plan/09 sec.8). Warnings = box + symbol, never colour only. */
+:root { --card-w: 90mm; --card-h: 60mm; }
+* { box-sizing: border-box; }
+html { background: #e8e8e8; }
+body.cuff { margin: 0; font: 9pt/1.12 "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: #000; background: #e8e8e8; }
+.bar { max-width: 200mm; margin: 0 auto; padding: 16px 16px 8px; font-size: 16px; line-height: 1.4; }
+.bar h1 { font-size: 24px; margin: 0 0 4px; }
+.bar p { margin: 4px 0; }
+.bar .meta { font-size: 15px; }
+.bar .assumption { font-weight: 700; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; align-items: center; }
+.btns button, .btns .btn { font: inherit; min-height: 48px; padding: 0 16px; border: 2px solid #000; background: #fff; color: #000; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+.btns .primary { background: #000; color: #fff; font-weight: 700; }
+.btns [aria-pressed="true"] { background: #000; color: #fff; }
+.err { border: 2px solid #000; padding: 8px; background: #fff; font-weight: 700; }
+
+.sheets { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 8px 8px 32px; }
+.sheet { background: #fff; width: calc(2 * var(--card-w)); display: grid; grid-template-columns: var(--card-w) var(--card-w); grid-auto-rows: var(--card-h); box-shadow: 0 0 0 1px #999, 0 2px 8px rgba(0,0,0,.25); }
+
+.card { width: var(--card-w); height: var(--card-h); overflow: hidden; padding: 1.5mm 2.4mm; border: 0.25mm solid #000; background: #fff; color: #000;
+  break-inside: avoid; page-break-inside: avoid; display: flex; flex-direction: column; gap: 0.3mm; }
+.card p { margin: 0; }
+.ch { display: flex; justify-content: space-between; align-items: baseline; gap: 2mm; border-bottom: 0.3mm solid #000; padding-bottom: 0.6mm; margin-bottom: 0.4mm; }
+.ch-l { font-size: 9pt; }
+.ch-r { font-size: 9pt; font-weight: 700; white-space: nowrap; }
+.ttl { font-size: 12pt; letter-spacing: 0.02em; }
+.sm { font-size: 9pt; }
+.big { font-size: 14pt; line-height: 1.1; }
+.big b { font-weight: 800; }
+.key { font-size: 11pt; }
+.key b { font-weight: 800; }
+.turnby { border: 0.6mm solid #000; padding: 0.2mm 1.2mm; font-size: 11pt; }
+.turnby span[data-v] { font-size: 14pt; font-weight: 800; }
+.flag { border: 0.5mm solid #000; padding: 0 1mm; font-weight: 700; }
+.flag.strong { border-width: 0.9mm; border-style: double; }
+.card.beyond { border: 1mm double #000; }
+.back { font-size: 11pt; }
+.name { font-style: italic; margin-top: -0.4mm; }
+.note { margin-top: auto; }
+.foot { margin-top: 0; }
+.cf { margin-top: 0; font-weight: 700; } /* project name footer (Plan/17 P1-4) */
+.lim { border: 0.2mm solid #000; padding: 0.2mm 1mm; }
+.lim.bind { border-width: 0.7mm; font-weight: 700; }
+.limgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8mm; }
+.limgrid .lim { font-size: 9pt; }
+.limgrid .v { font-size: 10pt; font-weight: 800; }
+.tbls { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+table { border-collapse: collapse; width: 100%; font-size: 9pt; }
+th, td { padding: 0 0.6mm; text-align: left; border-bottom: 0.15mm solid #000; line-height: 1.15; white-space: nowrap; }
+thead th { font-weight: 700; border-bottom-width: 0.3mm; font-size: 9pt; }
+td.t { font-variant-numeric: tabular-nums; }
+tbody th { font-weight: 800; }
+.summary .v { font-weight: 800; }
+.summary .key { font-size: 10pt; }
+
+@media screen { .screen-only { display: block; } }
+@media print {
+  @page { size: A4 portrait; margin: 10mm; }
+  html, body.cuff { background: #fff !important; color: #000 !important; }
+  .screen-only { display: none !important; }
+  .sheets { display: block; padding: 0; margin: 0; }
+  .sheet { box-shadow: none; margin: 0 auto; width: calc(2 * var(--card-w)); break-after: page; page-break-after: always; break-inside: avoid; }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+}

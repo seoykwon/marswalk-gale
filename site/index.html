@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+// Old planning-map links (index.html?route=…&tab=…) now live at map.html (Plan/21 W1). Keep query and hash.
+(function () { var q = new URLSearchParams(location.search); if (q.has('route') || q.has('tab')) location.replace('map.html' + location.search + location.hash); })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marswalk: plan a walking EVA in Gale Crater</title>
+<meta name="description" content="Marswalk: plan a walking EVA in Gale Crater, Mars, with Curiosity rover measurements (slope, line of sight, radiation, ground temperature). Planning map, EVA replay (simulation) and printable cuff checklist.">
+<meta name="generator" content="Built with Claude Code (Anthropic)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c1440e%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="src/app.css">
+<link rel="stylesheet" href="src/site/site.css">
+<style>
+/* home-only layout (Plan/25 W4) */
+.hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0 0; padding: 0; list-style: none; }
+.hero .cta a { display: inline-flex; align-items: center; text-decoration: none; }
+body.site .hero .cta a.alt { color: #fff; min-height: 48px; padding: 0 16px; border: 2px solid #fff; border-radius: 6px; font-weight: 600; }
+body.site .hero .cta a.alt:hover { background: #fff; color: #000; }
+.cards img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border: 1px solid var(--border); border-radius: 4px; background: var(--border); }
+.findings { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.findings > li { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; }
+.findings h3 { margin: 0 0 4px; }
+.findings p { margin: 0 0 6px; }
+.findings .note { font-size: 14px; color: var(--muted); }
+.site-main .lede { color: var(--text-2); }
+.more { padding-left: 1.2em; }
+.more li { margin: 6px 0; }
+.more a { display: inline-flex; align-items: center; min-height: 44px; }
+</style>
+</head>
+<body class="site" data-dict="home">
+<a class="skip" href="#main" data-s="skip">Skip to content</a>
+<header class="site-head">
+  <nav id="site-nav" aria-label="Site">
+    <a class="site-name" href="index.html" aria-current="page">Marswalk</a>
+    <ul>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="eva.html?route=B">EVA replay</a></li>
+      <li><a href="cuff.html?route=B">Cuff checklist</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero-inner">
+    <h1 id="hero-h"><span data-s="site.name">Marswalk</span> <span class="accent" data-s="home.tagline">Gale Crater EVA planner</span></h1>
+    <p data-s="home.lead">Plan a walking EVA in Gale Crater, Mars, with measurements from the Curiosity rover.</p>
+    <ul class="cta">
+      <li><a class="btn" href="map.html" data-s="home.cta_map">Open the map</a></li>
+      <li><a class="alt" href="eva.html?route=B" data-s="home.cta_eva">EVA replay</a></li>
+      <li><a class="alt" href="cuff.html?route=B" data-s="home.cta_cuff">Cuff checklist</a></li>
+    </ul>
+  </div>
+</section>
+<main id="main" class="site-main" tabindex="-1">
+  <section aria-labelledby="problem-h" class="prose">
+    <h2 id="problem-h" data-s="home.problem_h">The problem</h2>
+    <p data-s="home.problem_1">Astronauts on Mars will explore on foot. Before a walk leaves the base, someone has to answer four questions at once: is the ground too steep, can the crew still talk to the base, how much radiation is there, and how cold is the ground?</p>
+    <p data-s="home.problem_2">Marswalk answers them with real data from the place Curiosity has driven since 2012: orbital terrain and imagery, the rover's own tilt, the RAD radiation detector and the REMS ground-temperature sensor. It turns them into a planning map, a minute-by-minute EVA replay and a printable checklist for the wrist.</p>
+  </section>
+
+  <section aria-labelledby="findings-h">
+    <h2 id="findings-h" data-s="home.findings_h">Key findings</h2>
+    <p class="lede" data-s="home.findings_note">Numbers are read from the data files the site uses. Walking speed, stay time, the base antenna height and all limits are assumptions, marked as such.</p>
+    <ul class="findings">
+      <li>
+        <h3 data-s="home.f_route_h">Route B: distance and time</h3>
+        <p><span data-s="home.f_route_1">One way </span><span data-fact="routeB_one_way_m">…</span><span data-s="home.f_route_2">, ascent </span><span data-fact="routeB_climb_m">…</span><span data-s="home.f_route_3">. A full EVA with a stop at the destination takes </span><strong data-fact="routeB_eva_total">…</strong><span data-s="home.f_route_4"> (assumption: walking </span><span data-fact="walk_speed_kmh">…</span><span data-s="home.f_route_5"> on flat ground, slower on slopes, </span><span data-fact="eva_stay_min">…</span><span data-s="home.f_route_6"> at the destination).</span></p>
+      </li>
+      <li>
+        <h3 data-s="home.f_slope_h">Steep sections</h3>
+        <p><strong data-fact="routeB_hazards_15_n">…</strong><span data-s="home.f_slope_1"> sections of route B are </span><span data-fact="slope_caution_deg">…</span><span data-s="home.f_slope_2"> or steeper, together </span><strong data-fact="routeB_hazards_15_m">…</strong><span data-s="home.f_slope_3">. The steepest point on the 5 m grid is </span><span data-fact="routeB_max_slope_deg">…</span><span data-s="home.f_slope_4">. The </span><span data-fact="slope_caution_deg">…</span><span data-s="home.f_slope_5"> caution level is an assumption.</span></p>
+      </li>
+      <li>
+        <h3 data-s="home.f_los_h">Line-of-sight gap</h3>
+        <p><span data-s="home.f_los_1">For </span><strong data-fact="routeB_comms_out_m">…</strong><span data-s="home.f_los_2"> of route B the walker has no direct line of sight to the base (assumption: </span><span data-fact="antenna_m">…</span><span data-s="home.f_los_3"> antenna, no relays, no diffraction).</span></p>
+      </li>
+      <li>
+        <h3 data-s="home.f_rad_h">Radiation now</h3>
+        <p><span data-s="home.f_rad_1">Mean dose rate measured by RAD on the rover deck, sols </span><span data-fact="rad_recent_sols">…</span><span data-s="home.f_rad_2">: detector B (silicon) </span><strong data-fact="rad_recent_B_mean">…</strong><span data-s="home.f_rad_3">, detector E </span><strong data-fact="rad_recent_E_mean">…</strong><span data-s="home.f_rad_4">. At the B rate, one route B EVA gives </span><span data-fact="routeB_dose_B">…</span><span data-s="home.f_rad_5"> (silicon), on the assumed EVA duration. This is the rover-deck value, not the dose inside a suit.</span></p>
+        <p class="note"><span data-s="home.f_ab_1">Route A and route B rates were measured </span><span data-fact="rad_epoch_gap_years">…</span><span data-s="home.f_ab_2"> apart (</span><span data-fact="rad_early_years">…</span><span data-s="home.f_ab_3"> and </span><span data-fact="rad_recent_years">…</span><span data-s="home.f_ab_4">). The difference between them must not be read as an effect of altitude or location; this data cannot separate the two.</span></p>
+      </li>
+      <li>
+        <h3 data-s="home.f_spike_h">Transient event, sol 4716</h3>
+        <p><span data-s="home.f_spike_1">On sol </span><span data-fact="spike_sol">…</span><span data-s="home.f_spike_2"> detector E rose for about </span><span data-fact="spike_rise_h">…</span><span data-s="home.f_spike_3"> to a maximum of </span><strong data-fact="spike_E_max">…</strong><span data-s="home.f_spike_4"> (sol mean </span><span data-fact="spike_E_solmean">…</span><span data-s="home.f_spike_5">). It is a transient event; its cause is unconfirmed.</span></p>
+      </li>
+      <li>
+        <h3 data-s="home.f_temp_h">Ground temperature swing</h3>
+        <p><span data-s="home.f_temp_1">Over the most recent Mars year (</span><span data-fact="gts_recent_n_full">…</span><span data-s="home.f_temp_2"> full sols), the ground temperature changed by </span><strong data-fact="gts_recent_range_mean">…</strong><span data-s="home.f_temp_3"> between night and day on average, and by up to </span><strong data-fact="gts_recent_range_max">…</strong><span data-s="home.f_temp_4">.</span></p>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="tools-h">
+    <h2 id="tools-h" data-s="home.tools_h">Three tools</h2>
+    <ul class="cards">
+      <li>
+        <img src="img/map-route-b.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="Marswalk planning map: route B drawn over Gale Crater imagery, with the route panel showing distance, time and hazards.">
+        <h3 data-s="cards.map_title">Planning map</h3>
+        <p data-s="cards.map_text">Two walking routes on ground Curiosity drove, with slope, line of sight, radiation and ground temperature from the rover's own instruments.</p>
+        <a class="card-link" href="map.html" data-s="cards.map_link">Open the map</a>
+      </li>
+      <li class="eva">
+        <img src="img/eva-landscape.jpg" width="1280" height="800" loading="lazy" decoding="async" alt="EVA replay screen in landscape: map with the walker position and cards for next stop, turnaround margin, slope, dose and comms, with the replay controls below.">
+        <h3 data-s="cards.eva_title">EVA replay (simulation)</h3>
+        <p data-s="cards.eva_text">Replay a planned walk minute by minute with turnaround limits, dose, ground temperature and comms warnings.</p>
+        <a class="card-link" href="eva.html?route=B" data-s="cards.eva_link">Open EVA replay</a>
+      </li>
+      <li>
+        <img src="img/cuff-sheet.jpg" width="680" height="907" loading="lazy" decoding="async" alt="First printable cuff checklist sheet: a grid of small cards with the stop, time, distance and limits for a walking EVA.">
+        <h3 data-s="cards.cuff_title">Cuff checklist</h3>
+        <p data-s="cards.cuff_text">Printable 90 × 60 mm cards for each stop, computed by the same code as the EVA replay.</p>
+        <a class="card-link" href="cuff.html?route=B" data-s="cards.cuff_link">Open the checklist</a>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="checks-h" class="prose">
+    <h2 id="checks-h" data-s="home.checks_h">How the numbers are checked</h2>
+    <p><span data-s="home.checks_1">Headless Chrome checks and independent recomputation: panel numbers </span><span data-fact="checks_panel">…</span><span data-s="home.checks_2">, EVA self-test </span><span data-fact="checks_selftest">…</span><span data-s="home.checks_3">, cuff checklist </span><span data-fact="checks_cuff">…</span><span data-s="home.checks_4">, offline </span><span data-fact="checks_offline">…</span><span data-s="home.checks_5">, route validation </span><span data-fact="checks_route">…</span><span data-s="home.checks_6">.</span></p>
+    <h2 data-s="home.limits_h">Limits</h2>
+    <ul>
+      <li data-s="home.limit_1">Radiation is a time record at the rover's position, not a map of radiation across the crater.</li>
+      <li data-s="home.limit_2">The EVA replay moves the walker along the planned route; it is a simulation, not live positioning.</li>
+      <li data-s="home.limit_3">Walking speed, time limits, the dose budget and the temperature line are planning assumptions, not standards.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="more-h" class="prose">
+    <h2 id="more-h" data-s="home.more_h">More</h2>
+    <ul class="more">
+      <li><a href="about.html" data-s="home.more_about">Method: data processing, assumptions, validation and limits</a></li>
+      <li><a href="electronics.html" data-s="home.more_electronics">Electronics: what the measured dose and temperature cycles mean for equipment</a></li>
+      <li><a href="sources.html" data-s="home.more_sources">Sources: missions, data products and licences</a></li>
+    </ul>
+    <p class="muted" data-s="home.credit">Uses NASA mission data (Curiosity RAD, REMS and rover records; orbital imagery and terrain). Built with Claude Code (Anthropic).</p>
+  </section>
+</main>
+<footer id="site-footer" aria-label="Site footer">
+  <p class="muted" data-todo="repo-url">Source code: repository link added at release</p>
+</footer>
+<script type="module" src="src/site/site.js"></script>
+<script type="module" src="src/sw-register.js"></script>
+</body>
+</html>

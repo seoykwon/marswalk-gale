@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Marswalk · EVA</title>
+<meta name="description" content="EVA mode (simulation): replay a planned walking EVA in Gale Crater, Mars, with turnaround limits, dose, ground temperature, slope and line-of-sight warnings.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c1440e%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="src/eva/eva.css">
+</head>
+<body class="eva">
+<header class="ebar">
+  <p class="simlabel" id="simlabel"><span class="sim-tag" data-et="sim_short">SIMULATION</span> <span class="sim-rest" data-et="sim_rest">not a live position</span></p>
+  <p class="hdr-info"><span id="h-route"></span> · <span id="h-phase"></span></p>
+  <div class="hdr-btns">
+    <button type="button" class="b48" id="btn-setup" data-et="hdr.setup">Setup</button>
+    <a class="b48 btnlink" id="lnk-plan" href="map.html" data-et="hdr.planning">Planning mode</a>
+  </div>
+</header>
+
+<div id="banner" class="banner" role="alert" hidden></div>
+
+<main class="egrid" id="egrid">
+  <section class="emap" id="mapwrap" data-et-aria="map.label" aria-label="EVA map">
+    <div id="map"></div>
+    <div class="mapbtns zoom">
+      <button type="button" class="b72" id="zin" data-et-aria="ctl.zoom_in" aria-label="Zoom in">+</button>
+      <button type="button" class="b72" id="zout" data-et-aria="ctl.zoom_out" aria-label="Zoom out">−</button>
+    </div>
+    <div class="mapbtns layers" role="group" data-et-aria="ctl.layers_label" aria-label="Map layers">
+      <button type="button" class="b48" id="ly-base" aria-pressed="false" data-et="ctl.ly_shade">Hillshade</button>
+      <button type="button" class="b48" id="ly-slope" aria-pressed="true" data-et="ctl.ly_slope">Slope</button>
+      <button type="button" class="b48" id="ly-los" aria-pressed="false" data-et="ctl.ly_los">LOS</button>
+      <button type="button" class="b48" id="ly-follow" aria-pressed="true" data-et="ctl.follow">Follow</button>
+    </div>
+  </section>
+
+  <section class="info" id="info" aria-live="off">
+    <div class="card next" id="v2"></div>
+    <div class="card margin" id="v4"></div>
+    <div class="card slope" id="v7"></div>
+    <div class="card remain" id="v3"></div>
+    <div class="card limit" id="v5"></div>
+    <div class="card dose" id="v6"></div>
+    <div class="card ground" id="v8"></div>
+    <div class="card comms" id="v9"></div>
+    <details class="card equip" id="v10"><summary data-et="equip.title">Equipment gauges</summary><div id="v10-body"></div></details>
+  </section>
+</main>
+
+<footer class="ectl" id="ectl">
+  <div class="ctl-main">
+    <button type="button" class="b72 play" id="btn-play" aria-pressed="false"><span class="ico" aria-hidden="true">▶</span><span class="lbl" data-et="ctl.play">Play</span></button>
+    <button type="button" class="b72 turn" id="btn-turn"><span class="ico" aria-hidden="true">↩</span><span class="lbl" data-et="ctl.turn">Turn back now</span></button>
+    <button type="button" class="b72 speedcycle" id="btn-speed" data-et-aria="ctl.speed" aria-label="Replay speed"></button>
+    <button type="button" class="b72 maptoggle" id="btn-map" aria-pressed="false" data-et="ctl.map">Map</button>
+    <div class="ctl-stack">
+      <div class="slider-row">
+        <label for="slider" class="vh" data-et="ctl.slider">Elapsed time</label>
+        <div class="slider-box">
+          <input type="range" id="slider" min="0" max="1" step="1" value="0">
+          <div class="ticks" id="ticks" aria-hidden="true"></div>
+        </div>
+        <output id="clock" class="clock num" for="slider"></output>
+      </div>
+      <div class="ctl-row">
+        <div class="seg speeds" role="group" data-et-aria="ctl.speed" aria-label="Replay speed" id="speeds"></div>
+        <label class="pace"><span data-et="ctl.pace">Walk speed</span>
+          <select id="pace"></select></label>
+        <label class="auto"><input type="checkbox" id="auto" checked> <span data-et="ctl.auto">Auto turnaround</span></label>
+      </div>
+    </div>
+  </div>
+  <p class="disc-line" id="disc-line"></p>
+</footer>
+
+<dialog id="setup" aria-labelledby="setup-h">
+  <form method="dialog" class="setup-form" id="setup-form">
+    <h2 id="setup-h" data-et="setup.title">EVA replay setup</h2>
+    <p class="disc-full" id="disc-full"></p>
+    <div class="fields">
+      <fieldset><legend data-et="setup.route">Route</legend>
+        <div class="seg" id="su-route"></div></fieldset>
+      <label><span data-et="setup.start">Start (LMST)</span><select id="su-start"></select></label>
+      <label><span data-et="setup.season">Season (Ls)</span><select id="su-season"></select></label>
+      <label><span data-et="setup.scenario">Radiation scenario</span><select id="su-scenario"></select></label>
+      <p class="small" id="su-spike-note"></p>
+      <label><span data-et="setup.stay">Stay at destination</span><select id="su-stay"></select></label>
+      <p class="small" data-et="setup.pace_note">Walk speed and auto turnaround are also in the bottom bar.</p>
+    </div>
+    <details class="assume"><summary data-et="setup.assumptions">Assumptions</summary><div id="su-assume"></div></details>
+    <div id="offline-slot" data-btn-class="b48" data-dict="eva" data-inline="1"></div>
+    <div class="setup-btns">
+      <button type="submit" class="b72 primary" id="su-go" value="go" data-et="setup.start_btn">Start replay</button>
+      <button type="submit" class="b48" value="close" data-et="setup.close">Close</button>
+      <a class="b48 btnlink" id="lnk-home" href="index.html" data-et="setup.home">Home</a>
+    </div>
+  </form>
+</dialog>
+
+<section id="selftest" class="selftest" hidden aria-labelledby="st-h"></section>
+<div id="boot-error" class="boot-error" hidden></div>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script type="module" src="src/eva/eva.js"></script>
+<script type="module" src="src/sw-register.js"></script>
+</body>
+</html>

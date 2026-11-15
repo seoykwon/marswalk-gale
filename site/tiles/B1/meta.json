@@ -1,0 +1,152 @@
+{
+ "id": "B1",
+ "format": "jpg",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 5,
+   "zmax": 11,
+   "bbox": [
+    136.2770019,
+    -7.2140479,
+    139.3865918,
+    -3.5807944
+   ],
+   "area": "full",
+   "source_file": "work/vrt/ctx_curiosity_16m.vrt"
+  }
+ ],
+ "minzoom": 5,
+ "maxzoom": 11,
+ "tiles_total": 2112,
+ "bytes_total": 13367923,
+ "per_zoom": {
+  "5": {
+   "tiles": 2,
+   "bytes": 5996
+  },
+  "6": {
+   "tiles": 4,
+   "bytes": 19883
+  },
+  "7": {
+   "tiles": 16,
+   "bytes": 66150
+  },
+  "8": {
+   "tiles": 36,
+   "bytes": 212818
+  },
+  "9": {
+   "tiles": 110,
+   "bytes": 705578
+  },
+  "10": {
+   "tiles": 396,
+   "bytes": 2502974
+  },
+  "11": {
+   "tiles": 1548,
+   "bytes": 9854524
+  }
+ },
+ "source": "MRO CTX Curiosity-area mosaic (Mars Trek curiosity_ctx_mosaic, ~16 m/px), shifted +10 m E / -19 m N (Plan/06 sec.3-4)",
+ "attribution": "NASA/JPL-Caltech/MSSS (CTX), NASA Mars Trek",
+ "built": "2026-11-15T02:47:49",
+ "build_seconds": 17.4,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 5,
+   "grid": [
+    1,
+    2
+   ],
+   "written": 2,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.5,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 6,
+   "grid": [
+    2,
+    2
+   ],
+   "written": 4,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.5,
+   "cut_s": 0.3
+  },
+  {
+   "part": 0,
+   "z": 7,
+   "grid": [
+    4,
+    4
+   ],
+   "written": 16,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.4,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 8,
+   "grid": [
+    6,
+    6
+   ],
+   "written": 36,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.4,
+   "cut_s": 0.2
+  },
+  {
+   "part": 0,
+   "z": 9,
+   "grid": [
+    10,
+    11
+   ],
+   "written": 110,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.5,
+   "cut_s": 0.6
+  },
+  {
+   "part": 0,
+   "z": 10,
+   "grid": [
+    18,
+    22
+   ],
+   "written": 396,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.8,
+   "cut_s": 2.3
+  },
+  {
+   "part": 0,
+   "z": 11,
+   "grid": [
+    36,
+    43
+   ],
+   "written": 1548,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 1.8,
+   "cut_s": 9.0
+  }
+ ],
+ "jpeg_quality": 80
+}

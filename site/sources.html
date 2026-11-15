@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Built with Claude Code (Anthropic)">
+<title>Marswalk · Sources</title>
+<meta name="description" content="Data sources, licences, gaps, Ls method, Leaflet licence and AI-use disclosure for Marswalk.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23c1440e%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="src/app.css">
+<link rel="stylesheet" href="src/site/site.css">
+<style>.assump{display:inline-block;font-size:12px;font-weight:700;border:1px solid var(--accent);border-radius:4px;padding:0 6px;margin-right:6px}.nr{font-style:italic;color:var(--muted)}.gap{color:var(--text-2)}article.src{border:1px solid var(--border);border-radius:8px;padding:4px 16px 12px;margin:16px 0;background:var(--surface)}article.src dl{display:grid;grid-template-columns:9rem 1fr;gap:4px 12px}article.src dt{font-weight:600}article.src dd{margin:0;overflow-wrap:anywhere}@media(max-width:719px){article.src dl{grid-template-columns:1fr}}.site-main figure img{border:1px solid var(--border)}</style>
+</head>
+<body class="site" data-dict="sources">
+<a class="skip" href="#main" data-s="skip">Skip to content</a>
+<header class="site-head"><nav id="site-nav" aria-label="Site"><a class="site-name" href="index.html">Marswalk</a></nav></header>
+<main id="main" class="site-main" tabindex="-1">
+<h1>Sources</h1>
+<p class="prose">Marswalk uses NASA and USGS data. Credit lines are given with each dataset. This is an independent project, not affiliated with or endorsed by NASA or USGS. Where a fact could not be recovered it says <span class="nr">not recorded</span>; nothing is guessed. The list below is rendered from <a href="data/sources.json">data/sources.json</a>: <span id="src-count">…</span> entries, <span id="src-gaps">…</span> with at least one gap.</p>
+<noscript><p>This list needs JavaScript. The same data is in <a href="data/sources.json">data/sources.json</a>.</p></noscript>
+<h2 id="summary">Summary</h2>
+<div class="table-wrap" id="src-summary"></div>
+<h2 id="datasets">Datasets</h2>
+<div id="src-list"></div>
+
+<h2 id="not-used">Downloaded but not used</h2>
+<p class="prose">These files were downloaded or examined and do not feed any number or layer on this site: REMS ENVRDR products; the CTX 5 m mosaic (failed alignment, see <a href="about.html#validation">Method</a>); <code>curiosity_hirise_mosaic.tif</code>; the THEMIS ISIS cubes; TES rasters; USGS map I-1802-B; the Murray–Stimson contact; the reference images PIA23179 and PIA23412.</p>
+
+<h2 id="ls">How Ls is computed</h2>
+<p class="prose">Solar longitude (Ls) gives the season of each sol. The REMS archive files carry no Ls, so it is computed with <span data-fact="rems_ls_method">Mars24 (Allison &amp; McEwen 2000)</span> from the REMS timestamp of each sol, evaluated at local noon (<code>scripts/ls_mars24.py</code>). The code reproduces both worked examples published with Mars24 and gives <span data-fact="ls_landing_deg">150.7°</span> at the Curiosity landing, matching the published value. An outreach file from Centro de Astrobiología (CAB) was used only as a cross-check; its provider discourages other uses. Algorithm: <a href="https://www.giss.nasa.gov/tools/mars24/help/algorithm.html" rel="noopener">Mars24</a>. Allison, M., and M. McEwen (2000), Planet. Space Sci., 48, 215–235, doi:10.1016/S0032-0633(99)00092-6. See entry <a href="#src-LS">LS</a>.</p>
+
+<h2 id="software">Software and licence</h2>
+<p class="prose">The map uses Leaflet under the BSD-2-Clause licence. The licence text ships with the site: <a href="vendor/leaflet/LICENSE">vendor/leaflet/LICENSE</a>.</p>
+<div id="src-soft"></div>
+
+<h2 id="ai">Use of AI tools (Super Intelligence, SI, in Space Apps terms)</h2>
+<p class="prose">Marswalk was built with Claude Code, an AI coding assistant from Anthropic. The planning was done with Claude Fable 5.2. The implementation was done with Claude Opus 5.5 and Claude Sonnet. Claude Code wrote and edited the project's source code (the web pages under <code>site/</code> and the data-processing scripts under <code>scripts/</code>), wrote the planning and review notes, and drafted the text of the interface and of this documentation. The data processing and the checks were run by those scripts, not by the assistant by hand: the scripts read the NASA and USGS source files listed above and produced the map tiles, route profiles and numbers shown on the site. The numbers shown on the site come from those source files and scripts; the assistant did not supply measurements. The project owner chose the challenge, came up with the idea, set the scope and made the decisions, and reviewed the output. Assumptions that are not from NASA data (for example antenna height and slope hazard classes) are labelled as assumptions. No images, video or audio on the site were generated by AI. Images on the site are NASA mission data or screenshots of the app itself. No generated content uses NASA logos, flags or mission identifiers. Each page carries the metadata tag <code>generator: Built with Claude Code (Anthropic)</code>.</p>
+</main>
+<footer id="site-footer" aria-label="Site footer"><p class="muted">Source code: repository link added at release</p></footer>
+<script type="module" src="src/site/site.js"></script>
+<script type="module" src="src/site/sources.js"></script>
+<script type="module" src="src/sw-register.js"></script>
+</body>
+</html>

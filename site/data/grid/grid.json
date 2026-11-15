@@ -1,0 +1,62 @@
+{
+ "crs": "+proj=longlat +R=3396190 +no_defs (degrees on the Mars sphere)",
+ "west": 137.32660545082388,
+ "north": -4.554995829271581,
+ "east": 137.47860960059546,
+ "south": -4.875706027624252,
+ "dlon": 0.0001687060485811,
+ "dlat": 0.0001687060485811,
+ "cols": 901,
+ "rows": 1901,
+ "cell_size_m": 10.0,
+ "order": "row-major, row 0 = north edge, col 0 = west edge",
+ "cell_lookup": "col = floor((lon - west) / dlon), row = floor((north - lat) / dlat); value represents the cell (centre at west + (col + 0.5) * dlon)",
+ "files": {
+  "elev": {
+   "file": "elev_10m.bin",
+   "dtype": "uint16",
+   "byte_order": "little",
+   "scale": 0.1,
+   "offset": -5000.0,
+   "nodata": 65535,
+   "unit": "m",
+   "formula": "elev_m = v * 0.1 - 5000",
+   "source": "10 m mean of HiRISE DEM 1 m (work/dem_10m.tif), areoid elevation",
+   "bytes": 3425602,
+   "min_m": -4531.5,
+   "max_m": -2462.7,
+   "nodata_cells": 0
+  },
+  "slope": {
+   "file": "slope_10m.bin",
+   "dtype": "uint8",
+   "scale": 0.5,
+   "offset": 0.0,
+   "nodata": 255,
+   "unit": "deg",
+   "formula": "slope_deg = v * 0.5 (capped at 127 deg)",
+   "source": "maximum of the four 5 m-spacing slopes per 10 m cell (gdaldem slope on the 5 m mean DEM, -s 59274.7)",
+   "bytes": 1712801,
+   "nodata_cells": 0
+  }
+ },
+ "validation": {
+  "slope_vs_rover_tilt": {
+   "max": {
+    "n": 1389,
+    "median_signed": 0.7,
+    "median_abs": 2.03
+   },
+   "average": {
+    "n": 1389,
+    "median_signed": -0.82,
+    "median_abs": 1.83
+   }
+  },
+  "chosen": "max",
+  "note": "rover tilt at 1389 waypoints; signed = grid slope - tilt"
+ },
+ "note_en": "10 m grid approximation for the draw tool; walking thresholds are assumptions (scripts/config.json walk)",
+ "note_ko": "10m \uaca9\uc790 \uae30\uc900 \uadfc\uc0ac. \uacbd\uc0ac \uae30\uc900\uc740 \uac00\uc815(scripts/config.json walk)",
+ "generated_by": "scripts/34_grid.py"
+}

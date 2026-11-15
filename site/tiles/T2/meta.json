@@ -1,0 +1,278 @@
+{
+ "id": "T2",
+ "format": "png",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 9,
+   "zmax": 13,
+   "bbox": [
+    137.1224711,
+    -4.9254743,
+    137.7298129,
+    -4.2489631
+   ],
+   "area": "full",
+   "source_file": "work/stage3/T2_slopecls_5m.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.412935,
+    -4.624204,
+    137.456136,
+    -4.582389
+   ],
+   "area": "R1",
+   "source_file": "work/stage3/T2_slopecls_5m.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.380611,
+    -4.651955,
+    137.420364,
+    -4.616863
+   ],
+   "area": "R2",
+   "source_file": "work/stage3/T2_slopecls_5m.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.348543,
+    -4.734039,
+    137.389076,
+    -4.64515
+   ],
+   "area": "R3",
+   "source_file": "work/stage3/T2_slopecls_5m.tif"
+  },
+  {
+   "zmin": 14,
+   "zmax": 15,
+   "bbox": [
+    137.372368,
+    -4.830346,
+    137.417001,
+    -4.724866
+   ],
+   "area": "R4",
+   "source_file": "work/stage3/T2_slopecls_5m.tif"
+  }
+ ],
+ "minzoom": 9,
+ "maxzoom": 15,
+ "tiles_total": 1861,
+ "bytes_total": 6109190,
+ "per_zoom": {
+  "9": {
+   "tiles": 6,
+   "bytes": 30022
+  },
+  "10": {
+   "tiles": 20,
+   "bytes": 114567
+  },
+  "11": {
+   "tiles": 71,
+   "bytes": 393109
+  },
+  "12": {
+   "tiles": 254,
+   "bytes": 1230705
+  },
+  "13": {
+   "tiles": 926,
+   "bytes": 3520350
+  },
+  "14": {
+   "tiles": 136,
+   "bytes": 344376
+  },
+  "15": {
+   "tiles": 448,
+   "bytes": 476061
+  }
+ },
+ "source": "Slope from the 5 m mean HiRISE DEM (gdaldem slope -s 59274.7), classes from scripts/config.json walk",
+ "attribution": "NASA/JPL-Caltech/UArizona (HiRISE DEM); classes: assumption",
+ "built": "2026-11-15T02:48:26",
+ "build_seconds": 22.7,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 9,
+   "grid": [
+    2,
+    3
+   ],
+   "written": 6,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.3,
+   "cut_s": 0.2
+  },
+  {
+   "part": 0,
+   "z": 10,
+   "grid": [
+    4,
+    5
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "mode",
+   "warp_s": 0.4,
+   "cut_s": 0.3
+  },
+  {
+   "part": 0,
+   "z": 11,
+   "grid": [
+    8,
+    9
+   ],
+   "written": 71,
+   "dropped_empty": 1,
+   "resampling": "mode",
+   "warp_s": 0.3,
+   "cut_s": 1.3
+  },
+  {
+   "part": 0,
+   "z": 12,
+   "grid": [
+    15,
+    17
+   ],
+   "written": 254,
+   "dropped_empty": 1,
+   "resampling": "mode",
+   "warp_s": 0.5,
+   "cut_s": 3.0
+  },
+  {
+   "part": 0,
+   "z": 13,
+   "grid": [
+    29,
+    32
+   ],
+   "written": 926,
+   "dropped_empty": 2,
+   "resampling": "mode",
+   "warp_s": 1.1,
+   "cut_s": 9.4
+  },
+  {
+   "part": 1,
+   "z": 14,
+   "grid": [
+    5,
+    4
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.2
+  },
+  {
+   "part": 1,
+   "z": 15,
+   "grid": [
+    9,
+    8
+   ],
+   "written": 72,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.5
+  },
+  {
+   "part": 2,
+   "z": 14,
+   "grid": [
+    5,
+    4
+   ],
+   "written": 20,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.2
+  },
+  {
+   "part": 2,
+   "z": 15,
+   "grid": [
+    8,
+    7
+   ],
+   "written": 56,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.7
+  },
+  {
+   "part": 3,
+   "z": 14,
+   "grid": [
+    5,
+    9
+   ],
+   "written": 45,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.4
+  },
+  {
+   "part": 3,
+   "z": 15,
+   "grid": [
+    8,
+    17
+   ],
+   "written": 136,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 1.1
+  },
+  {
+   "part": 4,
+   "z": 14,
+   "grid": [
+    6,
+    10
+   ],
+   "written": 60,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 0.6
+  },
+  {
+   "part": 4,
+   "z": 15,
+   "grid": [
+    10,
+    20
+   ],
+   "written": 200,
+   "dropped_empty": 0,
+   "resampling": "near",
+   "warp_s": 0.1,
+   "cut_s": 1.5
+  }
+ ],
+ "jpeg_quality": null
+}

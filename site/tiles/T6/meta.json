@@ -1,0 +1,135 @@
+{
+ "id": "T6",
+ "format": "jpg",
+ "grid": "Leaflet L.CRS.EPSG4326 default (= Mars Trek default028mm): 2^(z+1) x 2^z tiles of 180/2^z deg, origin lon -180 lat 90, path {z}/{y}/{x}",
+ "crs": "+proj=longlat +R=3396190 +no_defs",
+ "parts": [
+  {
+   "zmin": 3,
+   "zmax": 8,
+   "bbox": [
+    130.0,
+    -12.0,
+    145.0,
+    3.0
+   ],
+   "area": "full",
+   "source_file": "work/stage3/T6_shaded_color.tif"
+  }
+ ],
+ "minzoom": 3,
+ "maxzoom": 8,
+ "tiles_total": 737,
+ "bytes_total": 3295715,
+ "per_zoom": {
+  "3": {
+   "tiles": 4,
+   "bytes": 11017
+  },
+  "4": {
+   "tiles": 6,
+   "bytes": 31479
+  },
+  "5": {
+   "tiles": 12,
+   "bytes": 96329
+  },
+  "6": {
+   "tiles": 42,
+   "bytes": 307398
+  },
+  "7": {
+   "tiles": 144,
+   "bytes": 821768
+  },
+  "8": {
+   "tiles": 529,
+   "bytes": 2027724
+  }
+ },
+ "source": "MGS MOLA 463 m global DEM (Mars_MGS_MOLA_DEM_mosaic_global_463m.tif), colour x hillshade (4x)",
+ "attribution": "NASA/JPL-Caltech/GSFC (MOLA), USGS",
+ "built": "2026-11-15T02:47:31",
+ "build_seconds": 6.3,
+ "build_log": [
+  {
+   "part": 0,
+   "z": 3,
+   "grid": [
+    2,
+    2
+   ],
+   "written": 4,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.1,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 4,
+   "grid": [
+    2,
+    3
+   ],
+   "written": 6,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.1,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 5,
+   "grid": [
+    3,
+    4
+   ],
+   "written": 12,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.1,
+   "cut_s": 0.1
+  },
+  {
+   "part": 0,
+   "z": 6,
+   "grid": [
+    6,
+    7
+   ],
+   "written": 42,
+   "dropped_empty": 0,
+   "resampling": "average",
+   "warp_s": 0.2,
+   "cut_s": 0.3
+  },
+  {
+   "part": 0,
+   "z": 7,
+   "grid": [
+    12,
+    12
+   ],
+   "written": 144,
+   "dropped_empty": 0,
+   "resampling": "bilinear",
+   "warp_s": 0.2,
+   "cut_s": 0.9
+  },
+  {
+   "part": 0,
+   "z": 8,
+   "grid": [
+    23,
+    23
+   ],
+   "written": 529,
+   "dropped_empty": 0,
+   "resampling": "bilinear",
+   "warp_s": 0.5,
+   "cut_s": 3.6
+  }
+ ],
+ "jpeg_quality": 80
+}

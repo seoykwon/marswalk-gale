@@ -1,0 +1,277 @@
+{
+  "generated": "2026-11-15",
+  "note": "One entry per dataset used in site/ (Plan/17 section 10), gap=true means something is still unknown; see gap_items. Fields: id, title, used_for, url, credit, licence_or_terms, citation, notes.",
+  "datasets": [
+    {
+      "id": "B2",
+      "title": "HiRISE colour mosaic of the Curiosity area, 25 cm (MSL Gale HiRISE LRGB, 78 quads, sharpened COG)",
+      "used_for": "B2 colour base map tiles",
+      "url": "https://asc-pds-services.s3.us-west-2.amazonaws.com/mosaic/Mars/MSL/MSL_Gale_HiRISE-LRGB_78quads_sharp_cog.tif",
+      "credit": "NASA/JPL-Caltech/UArizona (HiRISE); mosaic by Timothy Parker and Fred J. Calef III; USGS Astrogeology Science Center",
+      "licence_or_terms": "USGS Astropedia page for the grayscale parent product: Access Constraints 'Please credit authors', Use Constraints 'None'. The page for the colour file itself was not separately checked.",
+      "citation": "Calef III, F. J., & Parker, T. (2016). MSL Gale Merged Orthophoto Mosaic. PDS Annex, U.S. Geological Survey. https://astrogeology.usgs.gov/search/map/mars_msl_gale_merged_orthophoto_mosaic_25cm  (colour version announced on that page as 'July 2025'; authorship order for the colour version is Parker and Calef)",
+      "notes": "Product ID: file name MSL_Gale_HiRISE-LRGB_78quads_sharp_cog.tif (no separate catalogue ID). Local file size 1,030,625,379 bytes. Downloaded 2026-11-14 (script dl2.sh, curl -C - resume). Page gives no date for the colour file other than 'July 2025'.",
+      "gap": true,
+      "gap_items": [
+        "exact release date of the colour file",
+        "licence statement on the colour file's own record"
+      ]
+    },
+    {
+      "id": "DEM",
+      "title": "HiRISE DEM of Gale Crater, 1 m (Mars Trek label Gale_DEM_SMG_1m)",
+      "used_for": "T1 hillshade, T2 slope, T3 elevation colour, T5 line of sight, contours, 10 m grids, route elevation",
+      "url": "https://trek.nasa.gov/mars/TrekWS/rest/cat/data/stream?label=Gale_DEM_SMG_1m",
+      "credit": "NASA/JPL-Caltech/UArizona (HiRISE, per Mars Trek catalogue 'MRO HiRISE, Gale Crater DEM'); distributed by NASA Mars Trek",
+      "licence_or_terms": "Not recorded. The Mars Trek metadata endpoint returns HTTP 500 for this label.",
+      "citation": "Not available. Trek catalogue title: 'MRO HiRISE, Gale Crater DEM'.",
+      "notes": "The file was in MarsTrek/ before the logged download session; no download log exists. It matches the Trek catalogue record exactly: label Gale_DEM_SMG_1m, fileSize 5,775,684,529 bytes, bbox 137.1224711..137.7298129 E, -4.9254743..-4.2489631, catalogue data_created_date 2020-06-25 (this is the Trek record date, not the DEM's creation date). The URL above is the stream pattern used for the sibling Trek files and is NOT confirmed as the one used for this file. It is NOT the USGS 'MSL Gale Merged DEM 1m v3' (that product is 32980 x 57440 px, 137.124..137.681 E, 3.6 GB); do not cite that record for this file. The origin of the 'SMG' product (producer, publication) is unknown. Project owner confirmed (2026-11-15) the file was downloaded from NASA Mars Trek; download date not recorded.",
+      "gap": true,
+      "gap_items": [
+        "download URL actually used",
+        "upstream product ID and producer",
+        "licence/terms",
+        "citation"
+      ]
+    },
+    {
+      "id": "B1",
+      "title": "CTX mosaic, Curiosity roving site (Mars Trek label curiosity_ctx_mosaic), 16 m",
+      "used_for": "B1 CTX base map tiles",
+      "url": "https://trek.nasa.gov/mars/TrekWS/rest/cat/data/stream?label=curiosity_ctx_mosaic",
+      "credit": "NASA/JPL-Caltech/MSSS (CTX); distributed by NASA Mars Trek",
+      "licence_or_terms": "Trek metadata for this label is a placeholder: useconst 'TBD', accconst 'PRIVATE', title/abstract 'TBD'. No usable terms.",
+      "citation": "Not available. Trek catalogue title: 'MRO CTX, Curiosity Roving Site Mosaic'.",
+      "notes": "Downloaded 2026-11-14 with curl from this URL (logged in the session: 'curiosity_ctx_mosaic.tif attempt 1 got 156380277 expected 156380277'). Trek catalogue record date 2020-06-25. 11520 x 13460 px, 136.2768..139.3864 E, -7.2137..-3.5805.",
+      "gap": true,
+      "gap_items": [
+        "producer/product ID behind the Trek mosaic",
+        "licence/terms (Trek metadata is 'TBD')"
+      ]
+    },
+    {
+      "id": "B4",
+      "title": "THEMIS IR Night 100 m Controlled Partial Mosaic (USGS WCS coverage THEMIS_night), clip 130-145 E, -12 to 3",
+      "used_for": "B4 night IR tiles",
+      "url": "https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/mars/mars_simp_cyl.map&service=WCS&version=1.0.0&request=GetCoverage&coverage=THEMIS_night&CRS=EPSG:4326&BBOX=<W>,<S>,<E>,<N>&WIDTH=2964&HEIGHT=2964&FORMAT=GTiff",
+      "credit": "NASA/JPL-Caltech/ASU (THEMIS, Mars Odyssey); mosaic by USGS Astrogeology Science Center",
+      "licence_or_terms": "Not stated on the WCS metadata. USGS service; NASA data.",
+      "citation": "USGS Astrogeology, 'THEMIS IR Night 100m Controlled Partial Mosaic' (WCS/WMS layer title), released Oct. 2018. Background: https://astrogeology.usgs.gov/maps/mars-themis-controlled-mosaics-and-final-smithed-kernels",
+      "notes": "Nine 5-degree tiles (W = 130, 135, 140; S = -12, -7, -2; 2964 x 2964 px each) were fetched on 2026-11-14 and merged (band 1) into THEMIS_night_IR_USGS_WCS_lon130-145_lat-12-3.tif. Layer abstract: 'near-global controlled mosaic ... 100 m/p ... only covers from -65 to 65 latitude'.",
+      "gap": true,
+      "gap_items": [
+        "explicit licence text",
+        "named author of the mosaic"
+      ]
+    },
+    {
+      "id": "B5",
+      "title": "THEMIS IR Day 100 m Controlled Partial Mosaic (USGS WCS coverage THEMIS_controlled), clip 130-145 E, -12 to 3",
+      "used_for": "B5 day IR tiles",
+      "url": "https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/mars/mars_simp_cyl.map&service=WCS&version=1.0.0&request=GetCoverage&coverage=THEMIS_controlled&CRS=EPSG:4326&BBOX=<W>,<S>,<E>,<N>&WIDTH=2964&HEIGHT=2964&FORMAT=GTiff",
+      "credit": "NASA/JPL-Caltech/ASU (THEMIS, Mars Odyssey); mosaic by USGS Astrogeology Science Center",
+      "licence_or_terms": "Not stated on the WCS metadata. USGS service; NASA data.",
+      "citation": "USGS Astrogeology, 'THEMIS IR Day 100m Controlled Partial Mosaic' (WCS/WMS layer title); tiles completed as of Oct. 2018. Background: https://astrogeology.usgs.gov/maps/mars-themis-controlled-mosaics-and-final-smithed-kernels",
+      "notes": "Same nine-tile request pattern as B4, merged into THEMIS_controlled_IR_USGS_WCS_lon130-145_lat-12-3.tif (2026-11-14).",
+      "gap": true,
+      "gap_items": [
+        "explicit licence text",
+        "named author of the mosaic"
+      ]
+    },
+    {
+      "id": "E1",
+      "title": "THEMIS quantitative thermal inertia mosaic, 30S-0, 120-180E, 100 m (THEMIS_TI_Mosaic_Quant_30S120E_100mpp)",
+      "used_for": "E1 thermal inertia tiles; route 'ti' values",
+      "url": "https://asc-astropedia.s3.us-west-2.amazonaws.com/Mars/Odyssey/THEMIS-Global-Thermal-Inertia-Mosaic/Quantitative-32-Bit/THEMIS_TI_Mosaic_Quant_30S120E_100mpp.cub",
+      "credit": "Robin Fergason (USGS Astrogeology / Arizona State University Mars Space Flight Facility); NASA Mars Data Analysis Program; NASA/JPL-Caltech/ASU (THEMIS, Mars Odyssey)",
+      "licence_or_terms": "Astropedia: Access Constraints 'Public domain'; Use Constraints 'Please cite authors'.",
+      "citation": "Fergason, R. L., Christensen, P. R., and Kieffer, H. H. (2006), High-resolution thermal inertia derived from the Thermal Emission Imaging System (THEMIS): Thermal model and applications, J. Geophys. Res., 111, E12004, doi:10.1029/2006JE002735. Product page: https://astrogeology.usgs.gov/search/map/themis_thermal_inertia_mosaic_quantitative_30s120e_100mpp (publication date 2014-05-30, edition 1).",
+      "notes": "Product ID is the file name. Local size 2,532,510,196 bytes equals the page's External File Size. Downloaded 2026-11-14/15 (log_ti.txt). The .cub label and the Astropedia page do not state the pixel unit; the usual THEMIS unit is SI thermal inertia, J m^-2 K^-1 s^-1/2, but that was not confirmed from these sources.",
+      "gap": true,
+      "gap_items": [
+        "pixel unit (not in the label or the page text read)"
+      ]
+    },
+    {
+      "id": "T6",
+      "title": "MGS MOLA DEM 463 m global mosaic (Mars_MGS_MOLA_DEM_mosaic_global_463m)",
+      "used_for": "T6 wide elevation tiles",
+      "url": "https://planetarymaps.usgs.gov/mosaic/Mars_MGS_MOLA_DEM_mosaic_global_463m.tif",
+      "credit": "NASA/JPL-Caltech/GSFC (MOLA team, Mars Global Surveyor); published by USGS Astrogeology Science Center",
+      "licence_or_terms": "Astropedia: Access Constraints 'CC0 (public domain)'; Use Constraints 'None'.",
+      "citation": "MOLA Team (originator Goddard Space Flight Center), Mars MGS MOLA DEM 463m, MEGDR edition 2003-03-21, USGS Astrogeology Science Center. Page: https://astrogeology.usgs.gov/search/map/mars_mgs_mola_dem_463m . Instrument reference named on the page: Smith et al. (2001).",
+      "notes": "Product ID: file name Mars_MGS_MOLA_DEM_mosaic_global_463m.tif; 2 GB; 128 pixels/degree, 16-bit. Downloaded 2026-11-14/15 (log_mola.txt).",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "B3B6",
+      "title": "Mars Trek WMTS external tiles (B3, B6)",
+      "used_for": "B3 and B6 external base layers, loaded live by the browser",
+      "url": "https://trek.nasa.gov/tiles/Mars/EQ/<layer>/1.0.0/default/default028mm/{z}/{y}/{x}.jpg",
+      "credit": "NASA Mars Trek (NASA/JPL-Caltech); underlying mission credits per layer",
+      "licence_or_terms": "No terms of use found for the tile service. Searches found no Mars Trek-specific credit policy; the project's own note (Vector/tile_services.md) says no explicit terms were fetched. NASA imagery is generally free to use with credit, but that is not a Trek statement.",
+      "citation": "Not available.",
+      "notes": "B3 = layer Mars_MGS_MOLA_ClrShade_merge_global_463m (MOLA colour shaded relief; credit NASA/JPL-Caltech/GSFC). B6 = layer Mars_Viking_MDIM21_ClrMosaic_global_232m (Viking MDIM 2.1 colour mosaic; credit NASA/JPL-Caltech/USGS). Both read from scripts/30_tiler.py. Layer ids and sample tiles are in Vector/tile_services.md (verified 2026-11-14). Contact listed in a 2016 announcement: MarsTrek@jpl.nasa.gov (from a web search result, not verified).",
+      "gap": true,
+      "gap_items": [
+        "Trek terms of use"
+      ]
+    },
+    {
+      "id": "RAD",
+      "title": "MSL RAD RDR, MSL-M-RAD-3-RDR-V1.0",
+      "used_for": "rad.json (dose rates, LET spectra)",
+      "url": "https://pds-ppi.igpp.ucla.edu/data/MSL-M-RAD-3-RDR-V1.0/",
+      "credit": "PDS Planetary Plasma Interactions node; SwRI MSL RAD team",
+      "licence_or_terms": "PDS public archive; no licence text on the pages.",
+      "citation": "J. Peterson, S. Rafkin, C. Zeitlin, B. Ehresmann, E. Weigle, S. Jeffers, and D.M. Hassler, MSL MARS RADIATION ASSESSMENT DETECTOR RDR V1.0, MSL-M-RAD-3-RDR-V1.0, NASA Planetary Data System, 2013 (CITATION_DESC in CATALOG/RAD_RDR_DS.CAT). Instrument paper: Hassler, D. M. et al. (2012), The Radiation Assessment Detector (RAD) Investigation, Space Sci. Rev. 170, 503-558, doi:10.1007/s11214-012-9913-1.",
+      "notes": "Release date in the catalogue: 2026-08-03. Downloaded 2026-11-14. Details in Radiation/pds/SOURCES.md.",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "REMS",
+      "title": "MSL REMS MODRDR, MSL-M-REMS-5-MODRDR-V1.0 (bundle mslrem_1001)",
+      "used_for": "rems_A.json, rems_B.json (air and ground temperature, pressure, UV)",
+      "url": "https://atmos.nmsu.edu/PDS/data/mslrem_1001/",
+      "credit": "PDS Atmospheres node; REMS team, Centro de Astrobiologia (CAB, CSIC-INTA) as label producer",
+      "licence_or_terms": "PDS public archive; no licence text on the pages.",
+      "citation": "Gomez-Elvira, J., Mars Science Laboratory Rover Environmental Monitoring Station RDR Data V1.0, MSL-M-REMS-5-MODRDR-V1.0, NASA Planetary Data System, 2013 (CITATION_DESC in CATALOG/REMS_MODRDR_DS.CAT; release date 2024-08-02 in the catalogue). Instrument paper: Gomez-Elvira, J. et al. (2012), REMS: The Environmental Sensor Suite for the Mars Science Laboratory Rover, Space Sci. Rev. 170, 583-640, doi:10.1007/s11214-012-9921-1.",
+      "notes": "ENVRDR (MSL-M-REMS-4-ENVRDR-V1.0) was also downloaded but is not used in site/. Details in Weather/pds_rems/SOURCES.md.",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "LS",
+      "title": "Ls per sol: Mars24 algorithm (Allison and McEwen 2000), computed from the REMS MODRDR TIMESTAMP; CAB REMS daily weather JSON (Weather/weather.txt) kept only as a cross-check",
+      "used_for": "Ls per sol in scripts/21_parse_rems.py via scripts/ls_mars24.py (season bins in rems_A.json, rems_B.json). weather.txt is no longer read by any script (Plan/20 P2-9).",
+      "url": "https://www.giss.nasa.gov/tools/mars24/help/algorithm.html",
+      "credit": "Mars24 algorithm, NASA GISS (M. Allison); cross-check file: Centro de Astrobiologia (CAB, CSIC-INTA), data from MSL/REMS",
+      "licence_or_terms": "File text (disclaimer_en): 'The information contained into this file is provided by Centro de Astrobiologia (CAB) and is intended for outreach purposes only. Any other use is discouraged. CAB will take no responsibility for any result or publication made base on the content of this file. To access REMS scientific data, visit PDS at http://pds.nasa.gov.'",
+      "citation": "Allison, M., and M. McEwen (2000), A post-Pathfinder evaluation of areocentric solar coordinates with improved timing recipes for Mars seasonal/diurnal climate studies, Planet. Space Sci., 48, 215-235, doi:10.1016/S0032-0633(99)00092-6. Allison, M. (1997), Accurate analytic representations of solar time and seasons on Mars with applications to the Pathfinder/Surveyor missions, Geophys. Res. Lett., 24, 1967-1970.",
+      "notes": "Ls is evaluated at LMST 12:00 of each sol from the MODRDR TIMESTAMP (seconds since J2000). scripts/ls_mars24.py reproduces the Mars24 worked examples A and B (277.18758, 327.32416) and the published MSL landing value Ls 150.7 at 2012-08-06 05:18 UTC (Washington Univ. Analyst's Notebook MSL mission page; HiRISE ESP_028256_9022). Cross-check against weather.txt for the 1,009 route sols it lists: CAB = floor(Ls at the start of the sol) for 993 of them (all 325 route A sols); noon values are 0.22-1.31 deg higher. Earlier CAB notes: The download URL was not logged and the file's own text does not give one. The CAB REMS site is https://cab.inta-csic.es/rems/ . A guessed widget URL returned 404, so no endpoint is claimed. File dated 2026-11-14 on disk; 4745 sol records, sol 1 to 4995 (last terrestrial_date 2026-08-25). Replacement recommended: see sources/ls_recommendation.md. Project owner confirmed (2026-11-15) it came from the CAB REMS weather site; download date not recorded. Planned replacement: compute Ls from MODRDR TIMESTAMP (sources/ls_recommendation.md).",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "MSL_TRAVERSE",
+      "title": "NASA MMGIS 'Where is Curiosity' layers (traverse, waypoints, sites, routes)",
+      "used_for": "traverse.geojson, waypoints.geojson, sites.geojson, routes",
+      "url": "https://mars.nasa.gov/mmgis-maps/MSL/Layers/json/",
+      "credit": "NASA/JPL-Caltech",
+      "licence_or_terms": "No explicit terms on the endpoint (Vector/MSL_traverse/SOURCES.md).",
+      "citation": "Not available.",
+      "notes": "Fetched with curl; layer list in Vector/MSL_traverse/SOURCES.md.",
+      "gap": true,
+      "gap_items": [
+        "explicit terms"
+      ]
+    },
+    {
+      "id": "GAZETTEER",
+      "title": "IAU/USGS Gazetteer of Planetary Nomenclature, Mars center points",
+      "used_for": "places.geojson",
+      "url": "https://planetarynames.wr.usgs.gov/GIS_Downloads",
+      "credit": "IAU Working Group for Planetary System Nomenclature; USGS Astrogeology Science Center",
+      "licence_or_terms": "FGDC metadata useconst: 'Public domain.'",
+      "citation": "Source page current as of 2026-11-14 (Vector/gazetteer/SOURCES.md).",
+      "notes": "File: MARS_nomenclature_center_pts.zip, 2055 named features.",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "PHOTOS",
+      "title": "MSL raw images (237 images)",
+      "used_for": "photos.json, photos/",
+      "url": "https://mars.nasa.gov/api/v1/raw_image_items/",
+      "credit": "Navcam: NASA/JPL-Caltech. Mastcam: NASA/JPL-Caltech/MSSS.",
+      "licence_or_terms": "No explicit licence checked. Photos/SOURCES.md points to NASA media usage guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "citation": "Raw-image page: https://mars.nasa.gov/msl/multimedia/raw-images/ . Per-image source_url is in photos.json.",
+      "notes": "Raw, unprocessed images.",
+      "gap": true,
+      "gap_items": [
+        "explicit licence statement"
+      ]
+    },
+    {
+      "id": "G3",
+      "title": "Rudolph et al. marker band and mantling unit tracings (Mendeley Data mcdw3sp5vw v3)",
+      "used_for": "geology_rudolph.geojson (layer G3)",
+      "url": "https://doi.org/10.17632/mcdw3sp5vw.3",
+      "credit": "Amanda Rudolph (dataset author as listed); Purdue University; Smithsonian Institution. Reprojected, merged and simplified for this map.",
+      "licence_or_terms": "CC BY 4.0 (stated on the Mendeley page: http://creativecommons.org/licenses/by/4.0). Requires credit, a link to the licence, and a note that changes were made.",
+      "citation": "Dataset: Rudolph, Amanda (2024), 'Data for: An Orbital Comparison of a Late Mantling Unit on Aeolis Mons with Other Erosion-Resistant Strata Explored by MSL in Gale Crater, Mars', Mendeley Data, v3, http://doi.org/10.17632/mcdw3sp5vw.3 . Paper: Rudolph, A., Horgan, B., Bennett, K., Weitz, C., Sheppard, R., Banham, S. G., Bryk, A. B., Kite, E., Roberts, A., and Scuderi, L. (2024), An Orbital Comparison of a Late Mantling Unit on Aeolis Mons With Other Erosion-Resistant Strata Explored by MSL in Gale Crater, Mars, J. Geophys. Res. Planets, 129(8), e2023JE008242, doi:10.1029/2023JE008242.",
+      "notes": "Published 15 May 2024. Verified from the Mendeley page and the Crossref record on 2026-11-15. The paper is CC BY-NC 4.0; the data are CC BY 4.0. Full author names beyond initials were not verified.",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "G1",
+      "title": "Geologic map of Mars, USGS SIM 3292 (Tanaka et al. 2014)",
+      "used_for": "context_vectors.geojson (G1 geologic units)",
+      "url": "https://pubs.usgs.gov/sim/3292/",
+      "credit": "USGS",
+      "licence_or_terms": "USGS publication (U.S. Government work); no separate terms stated in the package.",
+      "citation": "Tanaka, K.L., Skinner, J.A., Jr., Dohm, J.M., Irwin, R.P., III, Kolb, E.J., Fortezzo, C.M., Platz, T., Michael, G.G., and Hare, T.M., 2014, Geologic map of Mars: U.S. Geological Survey Scientific Investigations Map 3292, scale 1:20,000,000. https://doi.org/10.3133/sim3292 ; data DOI https://doi.org/10.5066/P9PBKSGE",
+      "notes": "Crossref confirms DOI 10.3133/sim3292, year 2014.",
+      "gap": false,
+      "gap_items": []
+    },
+    {
+      "id": "E3_dune",
+      "title": "Mars Trek vector layer: Dune Field (Mars Global Digital Dune Database)",
+      "used_for": "context_vectors.geojson (E3), clipped to the Gale bounding box",
+      "url": "https://trek.nasa.gov/mars/TrekWS/rest/cat/data/stream?label=Dune_Field",
+      "credit": "USGS (Hayward et al.); distributed by NASA Mars Trek",
+      "licence_or_terms": "Not stated. The Trek metadata record has empty accconst and useconst fields.",
+      "citation": "Hayward, R.K., Mullins, K.F., Fenton, L.K., Hare, T.M., Titus, T.N., Bourke, M.C., Colaprete, A., and Christensen, P.R., 2007, Mars Global Digital Dune Database: MC2-MC29: U.S. Geological Survey Open-File Report 2007-1158 (cited in the Trek layer abstract).",
+      "notes": "File MarsTrek/extra/Dune_Field.zip, 542,079 bytes, equal to the Trek catalogue fileSize. Downloaded 2026-11-14 with curl from the URL pattern in the session's download script (small.sh). Product ID is the Trek label 'Dune_Field'. Metadata fetched 2026-11-15; no creation date given in it.",
+      "gap": true,
+      "gap_items": [
+        "licence/terms (Trek metadata empty)"
+      ]
+    },
+    {
+      "id": "E3_crism_omega",
+      "title": "Mars Trek vector layer: Hydrous Mineral Detections (OMEGA, CRISM)",
+      "used_for": "context_vectors.geojson (E3), clipped to the Gale bounding box",
+      "url": "https://trek.nasa.gov/mars/TrekWS/rest/cat/data/stream?label=Hydrous_Mineral_Detections_CRISM_clon0",
+      "credit": "Carter et al. (2013); data from CRISM (MRO) and OMEGA (Mars Express); distributed by NASA Mars Trek",
+      "licence_or_terms": "Not stated. The Trek metadata record has empty accconst and useconst fields.",
+      "citation": "Carter, J., Poulet, F., Bibring, J.-P., Mangold, N., Murchie, S. (2013), Hydrous minerals on Mars as seen by the CRISM and OMEGA imaging spectrometers: Updated global view, J. Geophys. Res. Planets, 118(4), 831-858 (cited in the Trek layer abstract).",
+      "notes": "File MarsTrek/extra/Hydrous_Mineral_Detections_CRISM_clon0.zip, 125,577 bytes, equal to the Trek catalogue fileSize. Downloaded 2026-11-14 with curl from the URL pattern in the session's download script (small.sh). Product ID is the Trek label 'Hydrous_Mineral_Detections_CRISM_clon0'. Metadata fetched 2026-11-15; no creation date given in it.",
+      "gap": true,
+      "gap_items": [
+        "licence/terms (Trek metadata empty)"
+      ]
+    },
+    {
+      "id": "E3_aqueous",
+      "title": "Mars Trek vector layer: Aqueous Mineral Distribution",
+      "used_for": "context_vectors.geojson (E3), clipped to the Gale bounding box",
+      "url": "https://trek.nasa.gov/mars/TrekWS/rest/cat/data/stream?label=Aqueous_Mineral_Distribution_Options_clon0",
+      "credit": "Ehlmann and Edwards (2014); spectrometer data from CRISM, OMEGA and THEMIS; distributed by NASA Mars Trek",
+      "licence_or_terms": "Not stated. The Trek metadata record has empty accconst and useconst fields.",
+      "citation": "Ehlmann, B. L., and Edwards, C. S. (2014), Mineralogy of the Martian Surface, Annu. Rev. Earth Planet. Sci., 42, 291-315 (cited in the Trek layer abstract).",
+      "notes": "File MarsTrek/extra/Aqueous_Mineral_Distribution_Options_clon0.zip, 154,071 bytes, equal to the Trek catalogue fileSize. Downloaded 2026-11-14 with curl from the URL pattern in the session's download script (small.sh). Product ID is the Trek label 'Aqueous_Mineral_Distribution_Options_clon0'. Metadata fetched 2026-11-15; no creation date given in it.",
+      "gap": true,
+      "gap_items": [
+        "licence/terms (Trek metadata empty)"
+      ]
+    },
+    {
+      "id": "LEAFLET",
+      "title": "Leaflet 1.9.4",
+      "used_for": "Map library in site/vendor/leaflet/",
+      "url": "https://unpkg.com/leaflet@1.9.4/dist/",
+      "credit": "Volodymyr Agafonkin and contributors",
+      "licence_or_terms": "BSD-2-Clause (licence file shipped in site/vendor/leaflet/)",
+      "citation": "Leaflet 1.9.4, https://leafletjs.com",
+      "notes": "Per Plan/17 section 10. Not re-verified here.",
+      "gap": false,
+      "gap_items": []
+    }
+  ]
+}

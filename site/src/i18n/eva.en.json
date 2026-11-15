@@ -1,0 +1,194 @@
+{
+  "_comment": "EVA mode strings (Plan/09). English only; eva.html?selftest=1 checks that every key used on the page exists here.",
+  "doc_title": "Marswalk · EVA",
+  "sim_short": "SIMULATION",
+  "sim_rest": "— not a live position",
+  "hdr": {
+    "setup": "Setup",
+    "planning": "Planning mode",
+    "route": "Route {id}",
+    "route_full": "Route {id} · start LMST {start} · Ls {ls}–{ls2}°",
+    "spike": "sol 4716 replay"
+  },
+  "map": {
+    "label": "EVA map",
+    "turn": "Turnaround point"
+  },
+  "ctl": {
+    "zoom_in": "Zoom in",
+    "zoom_out": "Zoom out",
+    "layers_label": "Map layers",
+    "ly_shade": "Hillshade",
+    "ly_slope": "Slope",
+    "ly_los": "LOS",
+    "follow": "Follow",
+    "play": "Play",
+    "pause": "Pause",
+    "turn": "Turn back now",
+    "slider": "Elapsed time",
+    "speed": "Replay speed",
+    "pace": "Walk speed",
+    "auto": "Auto turnaround",
+    "map": "Map",
+    "info": "Info"
+  },
+  "setup": {
+    "title": "EVA replay setup",
+    "route": "Route",
+    "start": "Start (LMST)",
+    "season": "Season (Ls)",
+    "scenario": "Radiation scenario",
+    "stay": "Stay at destination",
+    "pace_note": "Walk speed and auto turnaround are in the bottom bar. Keys: Space play/pause · ←/→ −/+5 min · T turn back · +/− zoom.",
+    "assumptions": "Assumptions",
+    "start_btn": "Start replay",
+    "close": "Close",
+    "home": "Home",
+    "default": "default",
+    "sc_normal": "Normal (period mean rate)",
+    "sc_spike": "Sol 4716 replay (transient event, cause unconfirmed)",
+    "spike_note": "Sol 4716: the highest daily dose in sols 4613–4843. The cause is not confirmed; it is replayed hour by hour from the RAD record.",
+    "spike_na": "Route A uses RAD sols {a}–{b} (measured at this site). That period has no transient event, so only the normal scenario is available."
+  },
+  "u": {
+    "min": "{m} min",
+    "assumption": "assumption"
+  },
+  "next": {
+    "label": "NEXT",
+    "arrived": "Back at base",
+    "turn_point": "TURN POINT",
+    "base": "BASE",
+    "latest": "Turn back here by {t} at the latest"
+  },
+  "margin": {
+    "label": "TURN BACK IN",
+    "label_back": "RETURN MARGIN",
+    "back_detail": "Arrive {eta} · return deadline {dl}",
+    "cold_start": "Ground temperature at the start time is already below the limit",
+    "dest_ok": "Destination reachable · max stay {s} (planned {stay})",
+    "turn_at": "Turnaround point at {d} m ({p}% of the route)",
+    "no_go": "Limits leave no time to walk out",
+    "manual": "Manual turn at {t}",
+    "over_expected": "Auto turnaround off: return expected {m} after the deadline",
+    "ok": "CONTINUE",
+    "soon": "TURN SOON",
+    "now": "TURN BACK NOW",
+    "back": "RETURNING",
+    "over": "OVER LIMIT",
+    "done": "BACK AT BASE",
+    "nogo": "DO NOT START"
+  },
+  "slope": {
+    "label": "SLOPE",
+    "normal": "SLOPE {deg}° {arrow} · max {max}° in next {m} m",
+    "caution": "CAUTION SLOPE {max}° in {dist} m, {len} m long",
+    "caution_in": "CAUTION SLOPE {max}° — on it now ({len} m section)",
+    "danger": "STEEP {max}° ahead — stop, check route",
+    "note": "5 m grid slope; smaller steps and rocks are not shown and steep spots read low."
+  },
+  "remain": {
+    "to_dest": "TO DEST",
+    "to_turn": "TO TURN POINT",
+    "to_base": "TO BASE",
+    "elapsed": "ELAPSED"
+  },
+  "limit": {
+    "label": "LIMIT",
+    "time": "TIME",
+    "daylight": "SUNSET",
+    "temp": "GROUND TEMP",
+    "dose": "DOSE",
+    "unknown": "no data",
+    "never": "not reached",
+    "bar_aria": "Elapsed {e} of the effective limit {d}",
+    "deadline": "Return deadline (limit minus reserve)",
+    "planned_end": "Planned return to base",
+    "return_by": "Back at base by {dl} (LMST {lm}), keeping a {r} reserve"
+  },
+  "dose": {
+    "label": "DOSE",
+    "crew": "Body-side reading (plastic detector E)",
+    "equip": "Equipment (silicon detector B)",
+    "share": "{p}% of {b} µGy budget",
+    "sc_normal": "RAD mean, sols {a}–{b}: E {e} / B {bb} µGy/h.",
+    "sc_spike": "Replay of sol {sol} (transient event, cause unconfirmed), hour by hour.",
+    "budget_note": "The {b} µGy budget is a planning assumption, not a health limit. Absorbed dose on the rover deck, not inside a suit."
+  },
+  "ground": {
+    "label": "GROUND",
+    "nodata": "no data for this hour",
+    "interp": "interpolated",
+    "below": "below −40 °C",
+    "note": "Exposed ground surface, REMS hourly mean for Ls {ls}–{ls2}°. Not suit or equipment temperature."
+  },
+  "comms": {
+    "label": "LINE OF SIGHT",
+    "nodata": "No line-of-sight data for this route",
+    "none": "NO LINE OF SIGHT TO BASE",
+    "back_out": "Last line-of-sight point {d} m back",
+    "back_ret": "Line of sight again in {d} m",
+    "ahead": "LOS lost in {dist} m for {len} m",
+    "ok": "Line of sight to base",
+    "note": "Straight line of sight from a {h} m antenna (assumption). No relays or diffraction."
+  },
+  "equip": {
+    "title": "Equipment gauges (semiconductor view)",
+    "eva_si": "This EVA, silicon",
+    "mission": "Mission total ({sols} sols on the surface, assumption)",
+    "cycles": "Thermal cycles",
+    "cycles_val": "{n} cycles (1 per sol, assumption)",
+    "swing": "Cycle size",
+    "swing_val": "ΔT {s} K this season (period mean {p} K)",
+    "rate": "Fastest change",
+    "rate_val": "+{up} K/h at {hu}:00, {down} K/h at {hd}:00 LMST",
+    "in_window": "within this EVA",
+    "gauge_aria": "Ground temperature {k} on a scale with −55 °C and −40 °C lines",
+    "gauge_note": "Scale {lo} to {hi} °C. The −40/−55 °C lines are reference lines, not part ratings.",
+    "note": "RAD values on the rover deck, not inside an equipment case. Temperature is ground temperature."
+  },
+  "phase": {
+    "out": "Outbound",
+    "stay": "At {where}",
+    "dest": "destination",
+    "turnpt": "turnaround point",
+    "back": "Returning",
+    "done": "Back at base"
+  },
+  "disc": {
+    "dose_where_A": "at this site (sols {a}–{b})",
+    "dose_where_B": "on this route (sols {a}–{b})",
+    "full": "SIMULATION — concept demonstration, not flight software. Position is replayed along the planned route; there is no live positioning. Time, daylight, temperature and dose limits are assumptions listed under “Assumptions”. Dose uses Curiosity RAD averages measured on the rover deck {where}, not a forecast and not the dose inside a suit. Route A and route B rates were measured 13 years apart (2012–13 and 2025). The difference between them must not be read as an effect of altitude or location; this data cannot separate the two. Ground temperature is the REMS hourly mean for the selected season, not suit or equipment temperature. Slope comes from a 5 m grid; smaller obstacles are not shown. Line of sight ignores relays and diffraction.",
+    "short": "SIMULATION — concept demonstration, not flight software. Limits are assumptions; see Setup."
+  },
+  "selftest": {
+    "title": "Self-test",
+    "summary": "{p}/{n} checks passed",
+    "intro": "Every value below comes from evaState()/evaPlan(), the same functions the replay uses. Reference values: Plan/09 4-4 hand cases, the planning-panel route summary (same expressions as the panel), and the independent Python recomputation of stage 4 (scripts/44_route_validate.py).",
+    "totals": "End of replay = planning panel, route {id} (10:00, default season, normal, pace 100 %)",
+    "item": "Item",
+    "panel": "Planning panel",
+    "eva": "EVA replay end",
+    "cases": "All checks",
+    "check": "Check",
+    "expected": "Expected",
+    "got": "EVA mode"
+  },
+  "offline": {
+    "btn": "Offline",
+    "title": "Offline ready",
+    "state_none": "Not saved for offline use",
+    "state_partial": "Partly saved",
+    "state_ready": "Offline ready: map tiles and data are saved",
+    "state_saving": "Saving… {p}%",
+    "state_unsupported": "This browser cannot save the site for offline use.",
+    "files": "{n} / {total} files",
+    "size": "Stored on this device: {mb} MB of {total} MB",
+    "save": "Make offline ready",
+    "update": "Check and update",
+    "clear": "Clear saved tiles",
+    "cleared": "Saved tiles cleared.",
+    "failed": "{n} files were not saved. Check the connection and try again.",
+    "note": "Saves the map tiles within {m} m of routes A and B (zoom {z0}–{z1}) and the data files. Pages and data were saved on the first visit. Outside this area the map is blank offline."
+  }
+}
